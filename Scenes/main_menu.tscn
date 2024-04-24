@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqcmigs3lu1ln"]
+
+[ext_resource type="Script" path="res://Scripts/UI/LoadCharacter.gd" id="1_h3dkv"]
+[ext_resource type="Script" path="res://Scripts/UI/CreateButton.gd" id="1_mivtv"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuVbox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CreateButton" type="Button" parent="MenuVbox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Make Character"
+script = ExtResource("1_mivtv")
+
+[node name="LoadCharacter" type="Button" parent="MenuVbox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Load Character
+"
+script = ExtResource("1_h3dkv")
+
+[node name="HostButton" type="Button" parent="MenuVbox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Host Room"
+
+[node name="SettingsButton" type="Button" parent="MenuVbox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="MenuVbox"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit"
+
+[connection signal="pressed" from="MenuVbox/CreateButton" to="MenuVbox/CreateButton" method="_on_pressed"]
+[connection signal="pressed" from="MenuVbox/LoadCharacter" to="MenuVbox/LoadCharacter" method="_on_pressed"]
