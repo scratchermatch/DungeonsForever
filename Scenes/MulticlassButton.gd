@@ -8,3 +8,5 @@ func _on_level_value_changed(value):
 	else:
 		visible = false
 		multiclass_spacer.visible = true
+
+ScrollContainer

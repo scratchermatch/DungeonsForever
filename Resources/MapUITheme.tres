@@ -1,3 +1,8 @@
-[gd_resource type="Theme" format=3 uid="uid://d23uonw3k6nv4"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://d23uonw3k6nv4"]
+
+[ext_resource type="StyleBox" uid="uid://dnh0xtixo3ykg" path="res://Resources/red.png" id="1_lum8k"]
 
 [resource]
+default_base_scale = 2.0
+default_font_size = 32
+ScrollContainer/styles/focus = ExtResource("1_lum8k")
