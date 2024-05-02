@@ -1,8 +1,8 @@
 extends OptionButton
 
-@onready var score_vbox = $"../ScoreVbox"
-@onready var mod_vbox = $"../ModVbox"
-@onready var save_vbox = $"../SaveVbox"
+@onready var score_vbox = %ScoreVBox
+@onready var mod_vbox = %ModVBox
+@onready var save_vbox = %SaveVBox
 
 func _on_item_selected(index):
 	if index == 0:

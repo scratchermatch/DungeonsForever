@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0mt85flo3qx7"]
+[gd_scene load_steps=13 format=3 uid="uid://c0mt85flo3qx7"]
 
 [ext_resource type="Texture2D" uid="uid://1m123efbed5w" path="res://Assets/Textures/OutdoorLandscapeTiles.png" id="1_wo3ii"]
 [ext_resource type="Script" path="res://Scripts/MapCamera.gd" id="2_gx5xc"]
+[ext_resource type="Theme" uid="uid://d23uonw3k6nv4" path="res://Resources/MapUITheme.tres" id="3_1sj53"]
 [ext_resource type="Script" path="res://Scripts/UI/OpenBackpack.gd" id="3_1tjrf"]
 [ext_resource type="Script" path="res://Scripts/UI/DraggablePanelContainer.gd" id="4_7lb5o"]
 [ext_resource type="Script" path="res://Scripts/UI/Inventory.gd" id="4_t17d6"]
@@ -389,396 +390,47 @@ script = ExtResource("2_gx5xc")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="InfoFooter" type="TabContainer" parent="UI"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -201.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 3
-
-[node name="Stats" type="TabBar" parent="UI/InfoFooter"]
-layout_mode = 2
-drag_to_rearrange_enabled = true
-
-[node name="StatMargins" type="MarginContainer" parent="UI/InfoFooter/Stats"]
-layout_mode = 1
+[node name="CharacterInfo" type="TabContainer" parent="UI"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 179.0
+offset_top = 125.0
+offset_right = -113.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="StatHbox" type="HBoxContainer" parent="UI/InfoFooter/Stats/StatMargins"]
-layout_mode = 2
-
-[node name="AbilityScoreLabelHbox" type="HBoxContainer" parent="UI/InfoFooter/Stats/StatMargins/StatHbox"]
-layout_mode = 2
-
-[node name="ScoreTypeVbox" type="VBoxContainer" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-
-[node name="Spacer" type="Control" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/ScoreTypeVbox"]
-layout_mode = 2
+size_flags_horizontal = 6
 size_flags_vertical = 3
+theme = ExtResource("3_1sj53")
 
-[node name="ScoreLabel" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/ScoreTypeVbox"]
-layout_mode = 2
-size_flags_vertical = 6
-text = "Score"
-horizontal_alignment = 1
-
-[node name="ModLabel" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/ScoreTypeVbox"]
-layout_mode = 2
-size_flags_vertical = 6
-text = "Modifier"
-horizontal_alignment = 1
-
-[node name="SaveMod" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/ScoreTypeVbox"]
-layout_mode = 2
-size_flags_vertical = 6
-text = "Saving Throw"
-
-[node name="StrengthVbox" type="VBoxContainer" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox"]
+[node name="Items" type="PanelContainer" parent="UI/CharacterInfo"]
 layout_mode = 2
 
-[node name="StrLabel" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/StrengthVbox"]
+[node name="ItemMargins" type="MarginContainer" parent="UI/CharacterInfo/Items"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-text = "Strength"
+theme = ExtResource("3_1sj53")
 
-[node name="Strength" type="LineEdit" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/StrengthVbox"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CharacterInfo/Items/ItemMargins"]
 layout_mode = 2
-size_flags_horizontal = 4
-placeholder_text = "10"
 alignment = 1
-max_length = 2
-flat = true
-select_all_on_focus = true
 
-[node name="StrMod" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/StrengthVbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-text = "+ 0"
-horizontal_alignment = 1
-
-[node name="StrSave" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/StrengthVbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-text = "+ 0"
-horizontal_alignment = 1
-
-[node name="Spacer" type="Control" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="DexVbox" type="VBoxContainer" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox"]
-layout_mode = 2
-
-[node name="DexLabel" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/DexVbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-text = "Dexterity"
-
-[node name="Dexterity" type="LineEdit" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/DexVbox"]
-layout_mode = 2
-size_flags_horizontal = 4
-placeholder_text = "10"
-alignment = 1
-max_length = 2
-flat = true
-select_all_on_focus = true
-
-[node name="DexMod" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/DexVbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-text = "+ 0"
-horizontal_alignment = 1
-
-[node name="DexSave" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/DexVbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-text = "+ 0"
-horizontal_alignment = 1
-
-[node name="Spacer2" type="Control" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ConVbox" type="VBoxContainer" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox"]
-layout_mode = 2
-
-[node name="ConLabel" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/ConVbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-text = "Constitution"
-
-[node name="Constitution" type="LineEdit" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/ConVbox"]
-layout_mode = 2
-size_flags_horizontal = 4
-placeholder_text = "10"
-alignment = 1
-max_length = 2
-flat = true
-select_all_on_focus = true
-
-[node name="ConMod" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/ConVbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-text = "+ 0"
-horizontal_alignment = 1
-
-[node name="ConSave" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/ConVbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-text = "+ 0"
-horizontal_alignment = 1
-
-[node name="Spacer3" type="Control" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="IntVbox" type="VBoxContainer" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox"]
-layout_mode = 2
-
-[node name="IntLabel" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/IntVbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-text = "Dexterity"
-
-[node name="Intelligence" type="LineEdit" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/IntVbox"]
-layout_mode = 2
-size_flags_horizontal = 4
-placeholder_text = "10"
-alignment = 1
-max_length = 2
-flat = true
-select_all_on_focus = true
-
-[node name="IntMod" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/IntVbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-text = "+ 0"
-horizontal_alignment = 1
-
-[node name="IntSave" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/IntVbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-text = "+ 0"
-horizontal_alignment = 1
-
-[node name="Spacer4" type="Control" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="WisVbox" type="VBoxContainer" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox"]
-layout_mode = 2
-
-[node name="WisLabel" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/WisVbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-text = "Wisdom"
-
-[node name="Wisdom" type="LineEdit" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/WisVbox"]
-layout_mode = 2
-size_flags_horizontal = 4
-placeholder_text = "10"
-alignment = 1
-max_length = 2
-flat = true
-select_all_on_focus = true
-
-[node name="WisMod" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/WisVbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-text = "+ 0"
-horizontal_alignment = 1
-
-[node name="WisSave" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/WisVbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-text = "+ 0"
-horizontal_alignment = 1
-
-[node name="Spacer5" type="Control" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ChaVbox" type="VBoxContainer" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox"]
-layout_mode = 2
-
-[node name="ChaLabel" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/ChaVbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-tooltip_text = "Rizz"
-mouse_filter = 1
-text = "Charisma"
-
-[node name="Charisma" type="LineEdit" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/ChaVbox"]
-layout_mode = 2
-size_flags_horizontal = 4
-placeholder_text = "10"
-alignment = 1
-max_length = 2
-flat = true
-select_all_on_focus = true
-
-[node name="ChaMod" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/ChaVbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-text = "+ 0"
-horizontal_alignment = 1
-
-[node name="ChaSave" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/AbilityScoreLabelHbox/ChaVbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-text = "+ 0"
-horizontal_alignment = 1
-
-[node name="GridContainer" type="GridContainer" parent="UI/InfoFooter/Stats/StatMargins/StatHbox"]
-layout_mode = 2
-size_flags_horizontal = 3
-columns = 3
-
-[node name="ACLabel" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Armor Class
-"
-horizontal_alignment = 1
-
-[node name="InitiativeLabel" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Initiative"
-horizontal_alignment = 1
-
-[node name="SpeedLabel" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/GridContainer"]
-layout_mode = 2
-tooltip_text = "Speed. I am speed."
-mouse_filter = 1
-text = "Speed"
-horizontal_alignment = 1
-
-[node name="AC" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "0
-"
-horizontal_alignment = 1
-
-[node name="Initiative" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "0
-"
-horizontal_alignment = 1
-
-[node name="Speed" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "0
-"
-horizontal_alignment = 1
-
-[node name="PassivePerceptionLabel" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/GridContainer"]
-layout_mode = 2
-text = "Passive Perception
-"
-horizontal_alignment = 1
-
-[node name="HitDiceLabel" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Hit Dice"
-horizontal_alignment = 1
-
-[node name="ProficiencyLabel" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Proficiency Bonus"
-horizontal_alignment = 1
-
-[node name="PassivePerception" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "0
-"
-horizontal_alignment = 1
-
-[node name="HitDice" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "0
-"
-horizontal_alignment = 1
-
-[node name="ProficiencyBonus" type="Label" parent="UI/InfoFooter/Stats/StatMargins/StatHbox/GridContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "0
-"
-horizontal_alignment = 1
-
-[node name="Items" type="TabBar" parent="UI/InfoFooter"]
-visible = false
-layout_mode = 2
-
-[node name="ItemMargins" type="MarginContainer" parent="UI/InfoFooter/Items"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/InfoFooter/Items/ItemMargins"]
-layout_mode = 2
-
-[node name="EquipmentHbox" type="HBoxContainer" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer"]
+[node name="EquipmentHbox" type="HBoxContainer" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 15
+alignment = 1
 
-[node name="EquipmentGrid" type="GridContainer" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/EquipmentHbox"]
+[node name="EquipmentGrid" type="GridContainer" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/EquipmentHbox"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/h_separation = 10
 columns = 2
 
-[node name="ArmorLabel" type="Label" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/EquipmentHbox/EquipmentGrid"]
+[node name="ArmorLabel" type="Label" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/EquipmentHbox/EquipmentGrid"]
 layout_mode = 2
 text = "Armor"
 
-[node name="ArmorOptions" type="OptionButton" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/EquipmentHbox/EquipmentGrid"]
+[node name="ArmorOptions" type="OptionButton" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/EquipmentHbox/EquipmentGrid"]
 layout_mode = 2
 item_count = 3
 selected = 0
@@ -789,12 +441,12 @@ popup/item_1/id = 1
 popup/item_2/text = "Studded Leather"
 popup/item_2/id = 2
 
-[node name="ShieldLabel" type="Label" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/EquipmentHbox/EquipmentGrid"]
+[node name="ShieldLabel" type="Label" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/EquipmentHbox/EquipmentGrid"]
 layout_mode = 2
 text = "Shield
 "
 
-[node name="ShieldOptions" type="OptionButton" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/EquipmentHbox/EquipmentGrid"]
+[node name="ShieldOptions" type="OptionButton" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/EquipmentHbox/EquipmentGrid"]
 layout_mode = 2
 item_count = 2
 selected = 0
@@ -803,11 +455,11 @@ popup/item_0/id = 0
 popup/item_1/text = "Shield"
 popup/item_1/id = 1
 
-[node name="HandOneLabel" type="Label" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/EquipmentHbox/EquipmentGrid"]
+[node name="HandOneLabel" type="Label" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/EquipmentHbox/EquipmentGrid"]
 layout_mode = 2
 text = "Hand One"
 
-[node name="HandOneOptions" type="OptionButton" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/EquipmentHbox/EquipmentGrid"]
+[node name="HandOneOptions" type="OptionButton" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/EquipmentHbox/EquipmentGrid"]
 layout_mode = 2
 item_count = 3
 selected = 0
@@ -818,12 +470,12 @@ popup/item_1/id = 1
 popup/item_2/text = "Greatsword"
 popup/item_2/id = 2
 
-[node name="HandTwoLabel" type="Label" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/EquipmentHbox/EquipmentGrid"]
+[node name="HandTwoLabel" type="Label" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/EquipmentHbox/EquipmentGrid"]
 layout_mode = 2
 text = "Hand Two
 "
 
-[node name="HandTwoOptions" type="OptionButton" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/EquipmentHbox/EquipmentGrid"]
+[node name="HandTwoOptions" type="OptionButton" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/EquipmentHbox/EquipmentGrid"]
 layout_mode = 2
 item_count = 3
 selected = 0
@@ -834,16 +486,17 @@ popup/item_1/id = 1
 popup/item_2/text = "Greatsword"
 popup/item_2/id = 2
 
-[node name="ArtifactGrid" type="GridContainer" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/EquipmentHbox"]
+[node name="ArtifactGrid" type="GridContainer" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/EquipmentHbox"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/h_separation = 10
 columns = 2
 
-[node name="AmmoLabel" type="Label" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/EquipmentHbox/ArtifactGrid"]
+[node name="AmmoLabel" type="Label" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/EquipmentHbox/ArtifactGrid"]
 layout_mode = 2
 text = "Ammunition"
 
-[node name="AmmoOptions" type="OptionButton" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/EquipmentHbox/ArtifactGrid"]
+[node name="AmmoOptions" type="OptionButton" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/EquipmentHbox/ArtifactGrid"]
 layout_mode = 2
 item_count = 2
 selected = 0
@@ -852,11 +505,11 @@ popup/item_0/id = 0
 popup/item_1/text = "Arrows (51)"
 popup/item_1/id = 1
 
-[node name="ArtifactLabel" type="Label" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/EquipmentHbox/ArtifactGrid"]
+[node name="ArtifactLabel" type="Label" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/EquipmentHbox/ArtifactGrid"]
 layout_mode = 2
 text = "Artifact #1"
 
-[node name="ArtifactOptions" type="OptionButton" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/EquipmentHbox/ArtifactGrid"]
+[node name="ArtifactOptions" type="OptionButton" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/EquipmentHbox/ArtifactGrid"]
 layout_mode = 2
 item_count = 2
 selected = 0
@@ -865,12 +518,12 @@ popup/item_0/id = 0
 popup/item_1/text = "Test Artifact"
 popup/item_1/id = 1
 
-[node name="ArtifactLabel2" type="Label" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/EquipmentHbox/ArtifactGrid"]
+[node name="ArtifactLabel2" type="Label" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/EquipmentHbox/ArtifactGrid"]
 layout_mode = 2
 text = "Artifact #2
 "
 
-[node name="ArtifactOptions2" type="OptionButton" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/EquipmentHbox/ArtifactGrid"]
+[node name="ArtifactOptions2" type="OptionButton" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/EquipmentHbox/ArtifactGrid"]
 layout_mode = 2
 item_count = 2
 selected = 0
@@ -879,12 +532,12 @@ popup/item_0/id = 0
 popup/item_1/text = "Test Artifact"
 popup/item_1/id = 1
 
-[node name="ArtifactLabel3" type="Label" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/EquipmentHbox/ArtifactGrid"]
+[node name="ArtifactLabel3" type="Label" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/EquipmentHbox/ArtifactGrid"]
 layout_mode = 2
 text = "Artifact #3
 "
 
-[node name="ArtifactOptions3" type="OptionButton" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/EquipmentHbox/ArtifactGrid"]
+[node name="ArtifactOptions3" type="OptionButton" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/EquipmentHbox/ArtifactGrid"]
 layout_mode = 2
 item_count = 2
 selected = 0
@@ -893,48 +546,48 @@ popup/item_0/id = 0
 popup/item_1/text = "Test Artifact"
 popup/item_1/id = 1
 
-[node name="ItemVboxContainer" type="VBoxContainer" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer"]
+[node name="ItemVboxContainer" type="VBoxContainer" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="MoneyGrid" type="GridContainer" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer"]
+[node name="MoneyGrid" type="GridContainer" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/h_separation = 10
 columns = 5
 
-[node name="CopperLabel" type="Label" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/MoneyGrid"]
+[node name="CopperLabel" type="Label" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/MoneyGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Copper"
 horizontal_alignment = 1
 
-[node name="SilverLabel" type="Label" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/MoneyGrid"]
+[node name="SilverLabel" type="Label" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/MoneyGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Silver"
 horizontal_alignment = 1
 
-[node name="ElectrumLabel" type="Label" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/MoneyGrid"]
+[node name="ElectrumLabel" type="Label" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/MoneyGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Electrum"
 horizontal_alignment = 1
 
-[node name="GoldLabel" type="Label" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/MoneyGrid"]
+[node name="GoldLabel" type="Label" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/MoneyGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Gold"
 horizontal_alignment = 1
 
-[node name="PlatinumLabel" type="Label" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/MoneyGrid"]
+[node name="PlatinumLabel" type="Label" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/MoneyGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Platinum"
 horizontal_alignment = 1
 
-[node name="Copper" type="LineEdit" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/MoneyGrid"]
+[node name="Copper" type="LineEdit" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/MoneyGrid"]
 layout_mode = 2
 size_flags_horizontal = 4
 placeholder_text = "0"
@@ -943,7 +596,7 @@ max_length = 2
 flat = true
 select_all_on_focus = true
 
-[node name="Silver" type="LineEdit" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/MoneyGrid"]
+[node name="Silver" type="LineEdit" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/MoneyGrid"]
 layout_mode = 2
 size_flags_horizontal = 4
 placeholder_text = "0"
@@ -952,7 +605,7 @@ max_length = 2
 flat = true
 select_all_on_focus = true
 
-[node name="Electrum" type="LineEdit" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/MoneyGrid"]
+[node name="Electrum" type="LineEdit" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/MoneyGrid"]
 layout_mode = 2
 size_flags_horizontal = 4
 placeholder_text = "0"
@@ -961,7 +614,7 @@ max_length = 2
 flat = true
 select_all_on_focus = true
 
-[node name="Gold" type="LineEdit" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/MoneyGrid"]
+[node name="Gold" type="LineEdit" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/MoneyGrid"]
 layout_mode = 2
 size_flags_horizontal = 4
 placeholder_text = "0"
@@ -970,7 +623,7 @@ max_length = 2
 flat = true
 select_all_on_focus = true
 
-[node name="Platinum" type="LineEdit" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/MoneyGrid"]
+[node name="Platinum" type="LineEdit" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/MoneyGrid"]
 layout_mode = 2
 size_flags_horizontal = 4
 placeholder_text = "0"
@@ -979,16 +632,16 @@ max_length = 2
 flat = true
 select_all_on_focus = true
 
-[node name="ConsumablesHbox" type="HBoxContainer" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer"]
+[node name="ConsumablesHbox" type="HBoxContainer" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="RationsLabel" type="Label" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/ConsumablesHbox"]
+[node name="RationsLabel" type="Label" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/ConsumablesHbox"]
 layout_mode = 2
 text = "Rations"
 horizontal_alignment = 1
 
-[node name="Rations" type="LineEdit" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/ConsumablesHbox"]
+[node name="Rations" type="LineEdit" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/ConsumablesHbox"]
 layout_mode = 2
 size_flags_horizontal = 4
 placeholder_text = "0"
@@ -997,11 +650,11 @@ max_length = 2
 flat = true
 select_all_on_focus = true
 
-[node name="TorchesLabel" type="Label" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/ConsumablesHbox"]
+[node name="TorchesLabel" type="Label" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/ConsumablesHbox"]
 layout_mode = 2
 text = "Torches"
 
-[node name="Torches" type="LineEdit" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/ConsumablesHbox"]
+[node name="Torches" type="LineEdit" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/ConsumablesHbox"]
 layout_mode = 2
 size_flags_horizontal = 4
 placeholder_text = "0"
@@ -1010,21 +663,21 @@ max_length = 2
 flat = true
 select_all_on_focus = true
 
-[node name="OpenBackpack" type="Button" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/ConsumablesHbox"]
+[node name="OpenBackpack" type="Button" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/ConsumablesHbox"]
 layout_mode = 2
 text = "Open Backpack"
 script = ExtResource("3_1tjrf")
 
-[node name="ToolHbox" type="HBoxContainer" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer"]
+[node name="ToolHbox" type="HBoxContainer" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="ToolLabel" type="Label" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/ToolHbox"]
+[node name="ToolLabel" type="Label" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/ToolHbox"]
 layout_mode = 2
 text = "Equipped Tool"
 
-[node name="ToolOptions" type="OptionButton" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/ToolHbox"]
+[node name="ToolOptions" type="OptionButton" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/ToolHbox"]
 layout_mode = 2
 item_count = 2
 selected = 0
@@ -1033,7 +686,7 @@ popup/item_0/id = 1
 popup/item_1/text = "Healer's Kit"
 popup/item_1/id = 0
 
-[node name="ToolUses" type="LineEdit" parent="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/ToolHbox"]
+[node name="ToolUses" type="LineEdit" parent="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/ToolHbox"]
 layout_mode = 2
 size_flags_horizontal = 4
 placeholder_text = "20"
@@ -1042,45 +695,41 @@ max_length = 2
 flat = true
 select_all_on_focus = true
 
-[node name="Spells" type="TabBar" parent="UI/InfoFooter"]
+[node name="Spells" type="PanelContainer" parent="UI/CharacterInfo"]
 visible = false
 layout_mode = 2
+theme = ExtResource("3_1sj53")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/InfoFooter/Spells"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MarginContainer" type="MarginContainer" parent="UI/CharacterInfo/Spells"]
+layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="SpellVbox" type="VBoxContainer" parent="UI/InfoFooter/Spells/MarginContainer"]
+[node name="SpellVbox" type="VBoxContainer" parent="UI/CharacterInfo/Spells/MarginContainer"]
 layout_mode = 2
 
-[node name="SpellFunctionHbox" type="HBoxContainer" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox"]
+[node name="SpellFunctionHbox" type="HBoxContainer" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox"]
 layout_mode = 2
 size_flags_vertical = 0
 
-[node name="PrepButton" type="Button" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SpellFunctionHbox"]
+[node name="PrepButton" type="Button" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SpellFunctionHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Prepare Spells"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SpellFunctionHbox"]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SpellFunctionHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="PresetLabel" type="Label" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SpellFunctionHbox/HBoxContainer"]
+[node name="PresetLabel" type="Label" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SpellFunctionHbox/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Current Preset:"
 horizontal_alignment = 2
 
-[node name="Presets" type="OptionButton" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SpellFunctionHbox/HBoxContainer"]
+[node name="Presets" type="OptionButton" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SpellFunctionHbox/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 item_count = 2
@@ -1090,78 +739,78 @@ popup/item_0/id = 0
 popup/item_1/text = "New Preset"
 popup/item_1/id = 1
 
-[node name="CastButton" type="Button" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SpellFunctionHbox"]
+[node name="CastButton" type="Button" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SpellFunctionHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Cast Spell"
 
-[node name="InfoButton" type="Button" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SpellFunctionHbox"]
+[node name="InfoButton" type="Button" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SpellFunctionHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Spell Information"
 
-[node name="SlotLabelHbox" type="HBoxContainer" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox"]
+[node name="SlotLabelHbox" type="HBoxContainer" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox"]
 layout_mode = 2
 
-[node name="Level1" type="Label" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SlotLabelHbox"]
+[node name="Level1" type="Label" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SlotLabelHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Level 1"
 horizontal_alignment = 1
 
-[node name="Level2" type="Label" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SlotLabelHbox"]
+[node name="Level2" type="Label" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SlotLabelHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Level 2"
 horizontal_alignment = 1
 
-[node name="Level3" type="Label" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SlotLabelHbox"]
+[node name="Level3" type="Label" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SlotLabelHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Level 3"
 horizontal_alignment = 1
 
-[node name="Level4" type="Label" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SlotLabelHbox"]
+[node name="Level4" type="Label" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SlotLabelHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Level 4"
 horizontal_alignment = 1
 
-[node name="Level5" type="Label" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SlotLabelHbox"]
+[node name="Level5" type="Label" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SlotLabelHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Level 5"
 horizontal_alignment = 1
 
-[node name="Level6" type="Label" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SlotLabelHbox"]
+[node name="Level6" type="Label" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SlotLabelHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Level 6"
 horizontal_alignment = 1
 
-[node name="Level7" type="Label" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SlotLabelHbox"]
+[node name="Level7" type="Label" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SlotLabelHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Level 7"
 horizontal_alignment = 1
 
-[node name="Level8" type="Label" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SlotLabelHbox"]
+[node name="Level8" type="Label" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SlotLabelHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Level 8"
 horizontal_alignment = 1
 
-[node name="Level9" type="Label" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SlotLabelHbox"]
+[node name="Level9" type="Label" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SlotLabelHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Level 9"
 horizontal_alignment = 1
 
-[node name="SpellHbox" type="HBoxContainer" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox"]
+[node name="SpellHbox" type="HBoxContainer" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ItemList" type="ItemList" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SpellHbox"]
+[node name="ItemList" type="ItemList" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SpellHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 item_count = 6
@@ -1172,7 +821,7 @@ item_3/text = "spell4"
 item_4/text = "spell5"
 item_5/text = "spell6"
 
-[node name="ItemList2" type="ItemList" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SpellHbox"]
+[node name="ItemList2" type="ItemList" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SpellHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 item_count = 6
@@ -1183,7 +832,7 @@ item_3/text = "spell4"
 item_4/text = "spell5"
 item_5/text = "spell6"
 
-[node name="ItemList3" type="ItemList" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SpellHbox"]
+[node name="ItemList3" type="ItemList" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SpellHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 item_count = 6
@@ -1194,7 +843,7 @@ item_3/text = "spell4"
 item_4/text = "spell5"
 item_5/text = "spell6"
 
-[node name="ItemList4" type="ItemList" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SpellHbox"]
+[node name="ItemList4" type="ItemList" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SpellHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 item_count = 6
@@ -1205,7 +854,7 @@ item_3/text = "spell4"
 item_4/text = "spell5"
 item_5/text = "spell6"
 
-[node name="ItemList5" type="ItemList" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SpellHbox"]
+[node name="ItemList5" type="ItemList" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SpellHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 item_count = 6
@@ -1216,7 +865,7 @@ item_3/text = "spell4"
 item_4/text = "spell5"
 item_5/text = "spell6"
 
-[node name="ItemList6" type="ItemList" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SpellHbox"]
+[node name="ItemList6" type="ItemList" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SpellHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 item_count = 6
@@ -1227,7 +876,7 @@ item_3/text = "spell4"
 item_4/text = "spell5"
 item_5/text = "spell6"
 
-[node name="ItemList7" type="ItemList" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SpellHbox"]
+[node name="ItemList7" type="ItemList" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SpellHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 item_count = 6
@@ -1238,7 +887,7 @@ item_3/text = "spell4"
 item_4/text = "spell5"
 item_5/text = "spell6"
 
-[node name="ItemList8" type="ItemList" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SpellHbox"]
+[node name="ItemList8" type="ItemList" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SpellHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 item_count = 6
@@ -1249,7 +898,7 @@ item_3/text = "spell4"
 item_4/text = "spell5"
 item_5/text = "spell6"
 
-[node name="ItemList9" type="ItemList" parent="UI/InfoFooter/Spells/MarginContainer/SpellVbox/SpellHbox"]
+[node name="ItemList9" type="ItemList" parent="UI/CharacterInfo/Spells/MarginContainer/SpellVbox/SpellHbox"]
 layout_mode = 2
 size_flags_horizontal = 3
 item_count = 6
@@ -1260,35 +909,33 @@ item_3/text = "spell4"
 item_4/text = "spell5"
 item_5/text = "spell6"
 
-[node name="Class" type="TabBar" parent="UI/InfoFooter"]
+[node name="Class" type="PanelContainer" parent="UI/CharacterInfo"]
 visible = false
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UI/InfoFooter/Class"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="Label" type="Label" parent="UI/CharacterInfo/Class"]
+layout_mode = 2
 text = "test 2"
 
-[node name="Race" type="TabBar" parent="UI/InfoFooter"]
+[node name="Race" type="PanelContainer" parent="UI/CharacterInfo"]
 visible = false
 layout_mode = 2
+theme = ExtResource("3_1sj53")
 
-[node name="Label" type="Label" parent="UI/InfoFooter/Race"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="Label" type="Label" parent="UI/CharacterInfo/Race"]
+layout_mode = 2
 text = "test 2"
 
-[node name="Feats" type="TabBar" parent="UI/InfoFooter"]
+[node name="Feats" type="PanelContainer" parent="UI/CharacterInfo"]
 visible = false
 layout_mode = 2
 
-[node name="Party" type="TabBar" parent="UI/InfoFooter"]
+[node name="Party" type="PanelContainer" parent="UI/CharacterInfo"]
 visible = false
 layout_mode = 2
 
 [node name="InventoryContainer" type="PanelContainer" parent="UI"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -1373,17 +1020,19 @@ text = "Close Inventory"
 [node name="BarsHeader" type="VBoxContainer" parent="UI"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 100.0
-offset_right = -95.0
-offset_bottom = 100.0
+offset_left = 166.0
+offset_right = -466.0
+offset_bottom = 158.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+mouse_filter = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="UI/BarsHeader"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
+mouse_filter = 2
 
 [node name="BarHbox" type="HBoxContainer" parent="UI/BarsHeader/PanelContainer"]
 layout_mode = 2
@@ -1396,7 +1045,7 @@ columns = 2
 
 [node name="HealthLabel" type="Label" parent="UI/BarsHeader/PanelContainer/BarHbox/GridContainer"]
 layout_mode = 2
-text = "Health"
+text = "HP"
 horizontal_alignment = 1
 
 [node name="HealthBar" type="ProgressBar" parent="UI/BarsHeader/PanelContainer/BarHbox/GridContainer"]
@@ -1404,10 +1053,12 @@ layout_mode = 2
 size_flags_vertical = 3
 step = 1.0
 value = 50.0
+show_percentage = false
 
 [node name="ExpLabel" type="Label" parent="UI/BarsHeader/PanelContainer/BarHbox/GridContainer"]
 layout_mode = 2
-text = "Experience"
+text = "XP
+"
 
 [node name="ExpBar" type="ProgressBar" parent="UI/BarsHeader/PanelContainer/BarHbox/GridContainer"]
 layout_mode = 2
@@ -1416,14 +1067,16 @@ size_flags_vertical = 3
 max_value = 1000.0
 step = 1.0
 value = 100.0
+show_percentage = false
 
 [node name="BuffsHbox" type="HBoxContainer" parent="UI/BarsHeader"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="CharacterContainer" type="PanelContainer" parent="UI"]
-offset_right = 100.0
-offset_bottom = 100.0
+offset_right = 166.0
+offset_bottom = 162.0
 script = ExtResource("6_6jjo4")
 
 [node name="CenterContainer" type="CenterContainer" parent="UI/CharacterContainer"]
@@ -1433,268 +1086,348 @@ layout_mode = 2
 custom_minimum_size = Vector2(90, 90)
 layout_mode = 2
 texture = ExtResource("7_ca5s1")
-expand_mode = 2
 
 [node name="StatContainer" type="PanelContainer" parent="UI"]
-offset_top = 100.0
-offset_right = 72.0
-offset_bottom = 332.0
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 162.0
+offset_right = 155.0
+grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/StatContainer"]
+[node name="OptionVbox" type="VBoxContainer" parent="UI/StatContainer"]
 layout_mode = 2
 
-[node name="ScoreVbox" type="VBoxContainer" parent="UI/StatContainer/VBoxContainer"]
+[node name="ScoreVBox" type="VBoxContainer" parent="UI/StatContainer/OptionVbox"]
+unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
 
-[node name="StrLabel" type="Label" parent="UI/StatContainer/VBoxContainer/ScoreVbox"]
+[node name="StrLabel" type="Label" parent="UI/StatContainer/OptionVbox/ScoreVBox"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 text = "Str"
 horizontal_alignment = 1
 
-[node name="StrContainer" type="PanelContainer" parent="UI/StatContainer/VBoxContainer/ScoreVbox"]
+[node name="Strength" type="Label" parent="UI/StatContainer/OptionVbox/ScoreVBox"]
 layout_mode = 2
-
-[node name="Strength" type="Label" parent="UI/StatContainer/VBoxContainer/ScoreVbox/StrContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "10"
 horizontal_alignment = 1
 
-[node name="DexLabel" type="Label" parent="UI/StatContainer/VBoxContainer/ScoreVbox"]
+[node name="HSeparator" type="HSeparator" parent="UI/StatContainer/OptionVbox/ScoreVBox"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DexLabel" type="Label" parent="UI/StatContainer/OptionVbox/ScoreVBox"]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 text = "Dex"
 horizontal_alignment = 1
 
-[node name="DexContainer" type="PanelContainer" parent="UI/StatContainer/VBoxContainer/ScoreVbox"]
+[node name="Dexterity" type="Label" parent="UI/StatContainer/OptionVbox/ScoreVBox"]
 layout_mode = 2
-
-[node name="Dexterity" type="Label" parent="UI/StatContainer/VBoxContainer/ScoreVbox/DexContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "10"
 horizontal_alignment = 1
 
-[node name="ConLabel" type="Label" parent="UI/StatContainer/VBoxContainer/ScoreVbox"]
+[node name="HSeparator2" type="HSeparator" parent="UI/StatContainer/OptionVbox/ScoreVBox"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConLabel" type="Label" parent="UI/StatContainer/OptionVbox/ScoreVBox"]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 text = "Con"
 horizontal_alignment = 1
 
-[node name="ConContainer" type="PanelContainer" parent="UI/StatContainer/VBoxContainer/ScoreVbox"]
+[node name="Constitution" type="Label" parent="UI/StatContainer/OptionVbox/ScoreVBox"]
 layout_mode = 2
-
-[node name="Constitution" type="Label" parent="UI/StatContainer/VBoxContainer/ScoreVbox/ConContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "10"
 horizontal_alignment = 1
 
-[node name="IntLabel" type="Label" parent="UI/StatContainer/VBoxContainer/ScoreVbox"]
+[node name="HSeparator3" type="HSeparator" parent="UI/StatContainer/OptionVbox/ScoreVBox"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="IntLabel" type="Label" parent="UI/StatContainer/OptionVbox/ScoreVBox"]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 text = "Int"
 horizontal_alignment = 1
 
-[node name="IntContainer" type="PanelContainer" parent="UI/StatContainer/VBoxContainer/ScoreVbox"]
+[node name="Intelligence" type="Label" parent="UI/StatContainer/OptionVbox/ScoreVBox"]
 layout_mode = 2
-
-[node name="Intelligence" type="Label" parent="UI/StatContainer/VBoxContainer/ScoreVbox/IntContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "10"
 horizontal_alignment = 1
 
-[node name="WisLabel" type="Label" parent="UI/StatContainer/VBoxContainer/ScoreVbox"]
+[node name="HSeparator4" type="HSeparator" parent="UI/StatContainer/OptionVbox/ScoreVBox"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WisLabel" type="Label" parent="UI/StatContainer/OptionVbox/ScoreVBox"]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 text = "Wis"
 horizontal_alignment = 1
 
-[node name="WisContainer" type="PanelContainer" parent="UI/StatContainer/VBoxContainer/ScoreVbox"]
+[node name="Wisdom" type="Label" parent="UI/StatContainer/OptionVbox/ScoreVBox"]
 layout_mode = 2
-
-[node name="Wisdom" type="Label" parent="UI/StatContainer/VBoxContainer/ScoreVbox/WisContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "10"
 horizontal_alignment = 1
 
-[node name="ChaLabel" type="Label" parent="UI/StatContainer/VBoxContainer/ScoreVbox"]
+[node name="HSeparator5" type="HSeparator" parent="UI/StatContainer/OptionVbox/ScoreVBox"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ChaLabel" type="Label" parent="UI/StatContainer/OptionVbox/ScoreVBox"]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 text = "Cha"
 horizontal_alignment = 1
 
-[node name="ChaContainer" type="PanelContainer" parent="UI/StatContainer/VBoxContainer/ScoreVbox"]
+[node name="Charisma" type="Label" parent="UI/StatContainer/OptionVbox/ScoreVBox"]
 layout_mode = 2
-
-[node name="Charisma" type="Label" parent="UI/StatContainer/VBoxContainer/ScoreVbox/ChaContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "10"
 horizontal_alignment = 1
 
-[node name="ModVbox" type="VBoxContainer" parent="UI/StatContainer/VBoxContainer"]
+[node name="ModVBox" type="VBoxContainer" parent="UI/StatContainer/OptionVbox"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="StrLabel" type="Label" parent="UI/StatContainer/VBoxContainer/ModVbox"]
+[node name="StrLabel" type="Label" parent="UI/StatContainer/OptionVbox/ModVBox"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
 text = "Str"
 horizontal_alignment = 1
 
-[node name="StrContainer" type="PanelContainer" parent="UI/StatContainer/VBoxContainer/ModVbox"]
+[node name="StrMod" type="Label" parent="UI/StatContainer/OptionVbox/ModVBox"]
 layout_mode = 2
-
-[node name="Strength" type="Label" parent="UI/StatContainer/VBoxContainer/ModVbox/StrContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "+0"
 horizontal_alignment = 1
 
-[node name="DexLabel" type="Label" parent="UI/StatContainer/VBoxContainer/ModVbox"]
+[node name="HSeparator" type="HSeparator" parent="UI/StatContainer/OptionVbox/ModVBox"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DexLabel" type="Label" parent="UI/StatContainer/OptionVbox/ModVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
 text = "Dex"
 horizontal_alignment = 1
 
-[node name="DexContainer" type="PanelContainer" parent="UI/StatContainer/VBoxContainer/ModVbox"]
+[node name="DexMod" type="Label" parent="UI/StatContainer/OptionVbox/ModVBox"]
 layout_mode = 2
-
-[node name="Dexterity" type="Label" parent="UI/StatContainer/VBoxContainer/ModVbox/DexContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "+0"
 horizontal_alignment = 1
 
-[node name="ConLabel" type="Label" parent="UI/StatContainer/VBoxContainer/ModVbox"]
+[node name="HSeparator2" type="HSeparator" parent="UI/StatContainer/OptionVbox/ModVBox"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConLabel" type="Label" parent="UI/StatContainer/OptionVbox/ModVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
 text = "Con"
 horizontal_alignment = 1
 
-[node name="ConContainer" type="PanelContainer" parent="UI/StatContainer/VBoxContainer/ModVbox"]
+[node name="ConMod" type="Label" parent="UI/StatContainer/OptionVbox/ModVBox"]
 layout_mode = 2
-
-[node name="Constitution" type="Label" parent="UI/StatContainer/VBoxContainer/ModVbox/ConContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "+0"
 horizontal_alignment = 1
 
-[node name="IntLabel" type="Label" parent="UI/StatContainer/VBoxContainer/ModVbox"]
+[node name="HSeparator3" type="HSeparator" parent="UI/StatContainer/OptionVbox/ModVBox"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="IntLabel" type="Label" parent="UI/StatContainer/OptionVbox/ModVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
 text = "Int"
 horizontal_alignment = 1
 
-[node name="IntContainer" type="PanelContainer" parent="UI/StatContainer/VBoxContainer/ModVbox"]
+[node name="IntMod" type="Label" parent="UI/StatContainer/OptionVbox/ModVBox"]
 layout_mode = 2
-
-[node name="Intelligence" type="Label" parent="UI/StatContainer/VBoxContainer/ModVbox/IntContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "+0"
 horizontal_alignment = 1
 
-[node name="WisLabel" type="Label" parent="UI/StatContainer/VBoxContainer/ModVbox"]
+[node name="HSeparator4" type="HSeparator" parent="UI/StatContainer/OptionVbox/ModVBox"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WisLabel" type="Label" parent="UI/StatContainer/OptionVbox/ModVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
 text = "Wis"
 horizontal_alignment = 1
 
-[node name="WisContainer" type="PanelContainer" parent="UI/StatContainer/VBoxContainer/ModVbox"]
+[node name="WisMod" type="Label" parent="UI/StatContainer/OptionVbox/ModVBox"]
 layout_mode = 2
-
-[node name="Wisdom" type="Label" parent="UI/StatContainer/VBoxContainer/ModVbox/WisContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "+0"
 horizontal_alignment = 1
 
-[node name="ChaLabel" type="Label" parent="UI/StatContainer/VBoxContainer/ModVbox"]
+[node name="HSeparator5" type="HSeparator" parent="UI/StatContainer/OptionVbox/ModVBox"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ChaLabel" type="Label" parent="UI/StatContainer/OptionVbox/ModVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
 text = "Cha"
 horizontal_alignment = 1
 
-[node name="ChaContainer" type="PanelContainer" parent="UI/StatContainer/VBoxContainer/ModVbox"]
+[node name="ChaMod" type="Label" parent="UI/StatContainer/OptionVbox/ModVBox"]
 layout_mode = 2
-
-[node name="Charisma" type="Label" parent="UI/StatContainer/VBoxContainer/ModVbox/ChaContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "+0"
 horizontal_alignment = 1
 
-[node name="SaveVbox" type="VBoxContainer" parent="UI/StatContainer/VBoxContainer"]
+[node name="SaveVBox" type="VBoxContainer" parent="UI/StatContainer/OptionVbox"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="StrLabel" type="Label" parent="UI/StatContainer/VBoxContainer/SaveVbox"]
+[node name="StrLabel" type="Label" parent="UI/StatContainer/OptionVbox/SaveVBox"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
 text = "Str"
 horizontal_alignment = 1
 
-[node name="StrContainer" type="PanelContainer" parent="UI/StatContainer/VBoxContainer/SaveVbox"]
+[node name="StrSave" type="Label" parent="UI/StatContainer/OptionVbox/SaveVBox"]
 layout_mode = 2
-
-[node name="Strength" type="Label" parent="UI/StatContainer/VBoxContainer/SaveVbox/StrContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "+0"
 horizontal_alignment = 1
 
-[node name="DexLabel" type="Label" parent="UI/StatContainer/VBoxContainer/SaveVbox"]
+[node name="HSeparator" type="HSeparator" parent="UI/StatContainer/OptionVbox/SaveVBox"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DexLabel" type="Label" parent="UI/StatContainer/OptionVbox/SaveVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
 text = "Dex"
 horizontal_alignment = 1
 
-[node name="DexContainer" type="PanelContainer" parent="UI/StatContainer/VBoxContainer/SaveVbox"]
+[node name="DexSave" type="Label" parent="UI/StatContainer/OptionVbox/SaveVBox"]
 layout_mode = 2
-
-[node name="Dexterity" type="Label" parent="UI/StatContainer/VBoxContainer/SaveVbox/DexContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "+0"
 horizontal_alignment = 1
 
-[node name="ConLabel" type="Label" parent="UI/StatContainer/VBoxContainer/SaveVbox"]
+[node name="HSeparator2" type="HSeparator" parent="UI/StatContainer/OptionVbox/SaveVBox"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConLabel" type="Label" parent="UI/StatContainer/OptionVbox/SaveVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
 text = "Con"
 horizontal_alignment = 1
 
-[node name="ConContainer" type="PanelContainer" parent="UI/StatContainer/VBoxContainer/SaveVbox"]
+[node name="ConSave" type="Label" parent="UI/StatContainer/OptionVbox/SaveVBox"]
 layout_mode = 2
-
-[node name="Constitution" type="Label" parent="UI/StatContainer/VBoxContainer/SaveVbox/ConContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "+0"
 horizontal_alignment = 1
 
-[node name="IntLabel" type="Label" parent="UI/StatContainer/VBoxContainer/SaveVbox"]
+[node name="HSeparator3" type="HSeparator" parent="UI/StatContainer/OptionVbox/SaveVBox"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="IntLabel" type="Label" parent="UI/StatContainer/OptionVbox/SaveVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
 text = "Int"
 horizontal_alignment = 1
 
-[node name="IntContainer" type="PanelContainer" parent="UI/StatContainer/VBoxContainer/SaveVbox"]
+[node name="IntSave" type="Label" parent="UI/StatContainer/OptionVbox/SaveVBox"]
 layout_mode = 2
-
-[node name="Intelligence" type="Label" parent="UI/StatContainer/VBoxContainer/SaveVbox/IntContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "+0"
 horizontal_alignment = 1
 
-[node name="WisLabel" type="Label" parent="UI/StatContainer/VBoxContainer/SaveVbox"]
+[node name="HSeparator4" type="HSeparator" parent="UI/StatContainer/OptionVbox/SaveVBox"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WisLabel" type="Label" parent="UI/StatContainer/OptionVbox/SaveVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
 text = "Wis"
 horizontal_alignment = 1
 
-[node name="WisContainer" type="PanelContainer" parent="UI/StatContainer/VBoxContainer/SaveVbox"]
+[node name="WisSave" type="Label" parent="UI/StatContainer/OptionVbox/SaveVBox"]
 layout_mode = 2
-
-[node name="Wisdom" type="Label" parent="UI/StatContainer/VBoxContainer/SaveVbox/WisContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "+0"
 horizontal_alignment = 1
 
-[node name="ChaLabel" type="Label" parent="UI/StatContainer/VBoxContainer/SaveVbox"]
+[node name="HSeparator5" type="HSeparator" parent="UI/StatContainer/OptionVbox/SaveVBox"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ChaLabel" type="Label" parent="UI/StatContainer/OptionVbox/SaveVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 20
 text = "Cha"
 horizontal_alignment = 1
 
-[node name="ChaContainer" type="PanelContainer" parent="UI/StatContainer/VBoxContainer/SaveVbox"]
+[node name="ChaSave" type="Label" parent="UI/StatContainer/OptionVbox/SaveVBox"]
 layout_mode = 2
-
-[node name="Charisma" type="Label" parent="UI/StatContainer/VBoxContainer/SaveVbox/ChaContainer"]
-layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
 text = "+0"
 horizontal_alignment = 1
 
-[node name="StatOptions" type="OptionButton" parent="UI/StatContainer/VBoxContainer"]
+[node name="StatOptions" type="OptionButton" parent="UI/StatContainer/OptionVbox"]
 layout_mode = 2
 item_count = 3
 selected = 0
@@ -2158,6 +1891,7 @@ layout_mode = 2
 text = "Close Skills Menu"
 
 [node name="DebugInventory" type="PanelContainer" parent="UI"]
+visible = false
 offset_left = 137.0
 offset_top = 108.0
 offset_right = 792.0
@@ -2239,10 +1973,10 @@ placeholder_text = "0"
 layout_mode = 2
 text = "Close Debug Menu"
 
-[connection signal="pressed" from="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/ConsumablesHbox/OpenBackpack" to="UI/InfoFooter/Items/ItemMargins/HBoxContainer/ItemVboxContainer/ConsumablesHbox/OpenBackpack" method="_on_pressed"]
+[connection signal="pressed" from="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/ConsumablesHbox/OpenBackpack" to="UI/CharacterInfo/Items/ItemMargins/VBoxContainer/ItemVboxContainer/ConsumablesHbox/OpenBackpack" method="_on_pressed"]
 [connection signal="pressed" from="UI/InventoryContainer/Margins/VBoxContainer/CloseButton" to="UI/InventoryContainer" method="_on_close_inventory_pressed"]
 [connection signal="gui_input" from="UI/CharacterContainer" to="UI/CharacterContainer" method="_on_gui_input"]
-[connection signal="item_selected" from="UI/StatContainer/VBoxContainer/StatOptions" to="UI/StatContainer/VBoxContainer/StatOptions" method="_on_item_selected"]
+[connection signal="item_selected" from="UI/StatContainer/OptionVbox/StatOptions" to="UI/StatContainer/OptionVbox/StatOptions" method="_on_item_selected"]
 [connection signal="pressed" from="UI/SkillsContainer/Margins/VBoxContainer/CloseButton" to="UI/SkillsContainer/Margins/VBoxContainer/CloseButton" method="_on_pressed"]
 [connection signal="item_selected" from="UI/DebugInventory/Margins/VBoxContainer/ScrollContainer/DebugInventory" to="UI/DebugInventory/Margins/VBoxContainer/ScrollContainer/DebugInventory" method="_on_item_selected"]
 [connection signal="pressed" from="UI/DebugInventory/Margins/VBoxContainer/FooterHbox/AddItem" to="UI/DebugInventory/Margins/VBoxContainer/ScrollContainer/DebugInventory" method="_on_add_item_pressed"]

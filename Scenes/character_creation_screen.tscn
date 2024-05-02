@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://dxo660f05aaf7"]
 
 [ext_resource type="Script" path="res://Scripts/UI/ClassOptions.gd" id="1_nvf8k"]
-[ext_resource type="Script" path="res://Scenes/RaceOptions.gd" id="2_2phtv"]
-[ext_resource type="Script" path="res://Scenes/RaceBookOptions.gd" id="3_2euwp"]
-[ext_resource type="Script" path="res://Scenes/MulticlassButton.gd" id="4_wnu0c"]
+[ext_resource type="Script" path="res://Scripts/UI/RaceOptions.gd" id="2_2phtv"]
+[ext_resource type="Script" path="res://Scripts/UI/RaceBookOptions.gd" id="3_2euwp"]
+[ext_resource type="Script" path="res://Scripts/UI/MulticlassButton.gd" id="4_wnu0c"]
 
 [node name="CharacterCreationScreen" type="Control"]
 layout_mode = 3
@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="CharacterBasicsScreen" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,140 +21,149 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CharacterBasicsScreen"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="MainVBox" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="MainVBox" type="VBoxContainer" parent="CharacterBasicsScreen/MarginContainer"]
 layout_mode = 2
 
-[node name="NewCharacterLabel" type="Label" parent="PanelContainer/MarginContainer/MainVBox"]
+[node name="NewCharacterLabel" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "Create New Character"
 
-[node name="StatHBox" type="HBoxContainer" parent="PanelContainer/MarginContainer/MainVBox"]
+[node name="StatHBox" type="HBoxContainer" parent="CharacterBasicsScreen/MarginContainer/MainVBox"]
 layout_mode = 2
 alignment = 1
 
-[node name="StatGrid" type="GridContainer" parent="PanelContainer/MarginContainer/MainVBox/StatHBox"]
+[node name="StatGrid" type="GridContainer" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 columns = 6
 
-[node name="Strength" type="Label" parent="PanelContainer/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="Strength" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Strength"
 horizontal_alignment = 1
 
-[node name="Dexterity" type="Label" parent="PanelContainer/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="Dexterity" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Dexterity"
 horizontal_alignment = 1
 
-[node name="Constitution" type="Label" parent="PanelContainer/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="Constitution" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Constitution"
 horizontal_alignment = 1
 
-[node name="Intelligence" type="Label" parent="PanelContainer/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="Intelligence" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Intelligence"
 horizontal_alignment = 1
 
-[node name="Wisdom" type="Label" parent="PanelContainer/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="Wisdom" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Wisdom"
 horizontal_alignment = 1
 
-[node name="Charisma" type="Label" parent="PanelContainer/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="Charisma" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Charisma"
 horizontal_alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="LineEdit" type="LineEdit" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
+placeholder_text = "8"
 
-[node name="LineEdit2" type="LineEdit" parent="PanelContainer/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="LineEdit2" type="LineEdit" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
+placeholder_text = "8"
 
-[node name="LineEdit3" type="LineEdit" parent="PanelContainer/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="LineEdit3" type="LineEdit" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
+placeholder_text = "8"
 
-[node name="LineEdit4" type="LineEdit" parent="PanelContainer/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="LineEdit4" type="LineEdit" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
+placeholder_text = "8"
 
-[node name="LineEdit5" type="LineEdit" parent="PanelContainer/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="LineEdit5" type="LineEdit" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
+placeholder_text = "8"
 
-[node name="LineEdit6" type="LineEdit" parent="PanelContainer/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="LineEdit6" type="LineEdit" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
+placeholder_text = "8"
 
-[node name="StatSelectionOptions" type="OptionButton" parent="PanelContainer/MarginContainer/MainVBox"]
+[node name="StatSelectionOptions" type="OptionButton" parent="CharacterBasicsScreen/MarginContainer/MainVBox"]
 layout_mode = 2
 size_flags_horizontal = 3
-item_count = 4
+item_count = 5
 selected = 0
-popup/item_0/text = "Standard Array"
-popup/item_0/id = 0
-popup/item_1/text = "Point Buy"
-popup/item_1/id = 1
-popup/item_2/text = "Roll Dice"
-popup/item_2/id = 2
-popup/item_3/text = "Custom"
-popup/item_3/id = 3
+popup/item_0/text = "Manual"
+popup/item_0/id = 4
+popup/item_1/text = "Standard Array"
+popup/item_1/id = 0
+popup/item_2/text = "Point Buy"
+popup/item_2/id = 1
+popup/item_3/text = "Roll Dice"
+popup/item_3/id = 2
+popup/item_4/text = "Custom"
+popup/item_4/id = 3
 
-[node name="BasicInfoHBox" type="HBoxContainer" parent="PanelContainer/MarginContainer/MainVBox"]
+[node name="BasicInfoHBox" type="HBoxContainer" parent="CharacterBasicsScreen/MarginContainer/MainVBox"]
 layout_mode = 2
 
-[node name="BasicInfoGrid" type="GridContainer" parent="PanelContainer/MarginContainer/MainVBox/BasicInfoHBox"]
+[node name="BasicInfoGrid" type="GridContainer" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 theme_override_constants/h_separation = 13
 columns = 3
 
-[node name="NameLabel" type="Label" parent="PanelContainer/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
+[node name="NameLabel" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Name"
 horizontal_alignment = 1
 
-[node name="Name" type="LineEdit" parent="PanelContainer/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
+[node name="Name" type="LineEdit" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
+placeholder_text = "New Character"
 clear_button_enabled = true
 
-[node name="SortyByLabel" type="Label" parent="PanelContainer/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
+[node name="SortyByLabel" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
 layout_mode = 2
 text = "Sort By:"
 
-[node name="ClassLabel" type="Label" parent="PanelContainer/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
+[node name="ClassLabel" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Class"
 horizontal_alignment = 1
 
-[node name="ClassOptions" type="OptionButton" parent="PanelContainer/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
+[node name="ClassOptions" type="OptionButton" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 script = ExtResource("1_nvf8k")
 
-[node name="ClassBookOptions" type="OptionButton" parent="PanelContainer/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
+[node name="ClassBookOptions" type="OptionButton" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 item_count = 1
@@ -162,7 +171,7 @@ selected = 0
 popup/item_0/text = "All Books"
 popup/item_0/id = 0
 
-[node name="RaceLabel" type="Label" parent="PanelContainer/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
+[node name="RaceLabel" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
 layout_mode = 2
 size_flags_horizontal = 0
 tooltip_text = "Racist!"
@@ -170,14 +179,14 @@ mouse_filter = 1
 text = "Race"
 horizontal_alignment = 1
 
-[node name="RaceOptions" type="OptionButton" parent="PanelContainer/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
+[node name="RaceOptions" type="OptionButton" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 script = ExtResource("2_2phtv")
 
-[node name="RaceBookOptions" type="OptionButton" parent="PanelContainer/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
+[node name="RaceBookOptions" type="OptionButton" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 item_count = 1
@@ -186,40 +195,154 @@ popup/item_0/text = "All Books"
 popup/item_0/id = 0
 script = ExtResource("3_2euwp")
 
-[node name="LevelLabel" type="Label" parent="PanelContainer/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
+[node name="LevelLabel" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Level"
 horizontal_alignment = 1
 
-[node name="Level" type="SpinBox" parent="PanelContainer/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
+[node name="Level" type="SpinBox" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
 layout_mode = 2
 min_value = 1.0
 max_value = 20.0
 value = 1.0
 
-[node name="MulticlassButton" type="Button" parent="PanelContainer/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
+[node name="MulticlassButton" type="Button" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
 visible = false
 layout_mode = 2
 text = "Multiclass"
 script = ExtResource("4_wnu0c")
 
-[node name="MulticlassSpacer" type="Control" parent="PanelContainer/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
+[node name="MulticlassSpacer" type="Control" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Control" type="Control" parent="PanelContainer/MarginContainer/MainVBox/BasicInfoHBox"]
+[node name="Control" type="Control" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Class Details" type="Button" parent="PanelContainer/MarginContainer/MainVBox/BasicInfoHBox"]
+[node name="Class Details" type="Button" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox"]
 layout_mode = 2
 text = "Class Details
 "
 
-[node name="Race Details" type="Button" parent="PanelContainer/MarginContainer/MainVBox/BasicInfoHBox"]
+[node name="Race Details" type="Button" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox"]
 layout_mode = 2
 text = "Race Details
 "
 
-[connection signal="value_changed" from="PanelContainer/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/Level" to="PanelContainer/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/MulticlassButton" method="_on_level_value_changed"]
+[node name="HPHBox" type="HBoxContainer" parent="CharacterBasicsScreen/MarginContainer/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="HitPointLabel" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hit Points: "
+
+[node name="HitPoints" type="SpinBox" parent="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HitDiceLabel" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Hit Dice: "
+
+[node name="HitDice" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "4d8"
+
+[node name="OptionButton" type="OptionButton" parent="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 4
+selected = 0
+popup/item_0/text = "Manual"
+popup/item_0/id = 0
+popup/item_1/text = "Average"
+popup/item_1/id = 1
+popup/item_2/text = "Maximum"
+popup/item_2/id = 2
+popup/item_3/text = "Roll"
+popup/item_3/id = 3
+
+[node name="FirstLevelLabel" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "First Level Max HP"
+
+[node name="CheckBox" type="CheckBox" parent="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox"]
+layout_mode = 2
+size_flags_horizontal = 6
+button_pressed = true
+
+[node name="BackgroundVBox" type="HBoxContainer" parent="CharacterBasicsScreen/MarginContainer/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="BackgroundLabel" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BackgroundVBox"]
+layout_mode = 2
+text = "Background"
+
+[node name="BackgroundOptions" type="OptionButton" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BackgroundVBox"]
+layout_mode = 2
+
+[node name="AlignmentLabel" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BackgroundVBox"]
+layout_mode = 2
+text = "Alignment"
+
+[node name="AlignmentOptions" type="OptionButton" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BackgroundVBox"]
+layout_mode = 2
+item_count = 9
+selected = 0
+popup/item_0/text = "Lawful Good"
+popup/item_0/id = 0
+popup/item_1/text = "Neutral Good"
+popup/item_1/id = 2
+popup/item_2/text = "Chaotic Good"
+popup/item_2/id = 1
+popup/item_3/text = "Lawful Neutral"
+popup/item_3/id = 3
+popup/item_4/text = "True Neutral"
+popup/item_4/id = 4
+popup/item_5/text = "Chaotic Neutral"
+popup/item_5/id = 5
+popup/item_6/text = "Lawful Evil"
+popup/item_6/id = 6
+popup/item_7/text = "Neutral Evil"
+popup/item_7/id = 8
+popup/item_8/text = "Chaotic Evil"
+popup/item_8/id = 7
+
+[node name="ButtonHBox" type="HBoxContainer" parent="CharacterBasicsScreen/MarginContainer/MainVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="BackButton" type="Button" parent="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Back to Main Menu"
+
+[node name="NextButton" type="Button" parent="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Next to Features and Skills"
+
+[node name="CharacterFeaturesScreen" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+
+[node name="BackpackCreationScreen" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="value_changed" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/Level" to="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/MulticlassButton" method="_on_level_value_changed"]

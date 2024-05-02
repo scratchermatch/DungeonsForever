@@ -47,6 +47,6 @@ func load_file(filepath):
 
 func construct_books():
 	#Create a data structure to hold translations for book IDs
+	print("Translating book mnemonics")
 	for book in books:
 		book_translations[book["id"]] = book["name"]
-	print(book_translations)

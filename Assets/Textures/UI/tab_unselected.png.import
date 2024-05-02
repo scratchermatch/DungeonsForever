@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dic1ttq3e1x3h"
-path="res://.godot/imported/crate0_diffuse.png-029527bf642ad91ff25be2dc68710a34.ctex"
+uid="uid://dwwynomcrxvgy"
+path="res://.godot/imported/tab_unselected.png-7aca0e20b49026f8157a26b070f90c21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Textures/crate0_diffuse.png"
-dest_files=["res://.godot/imported/crate0_diffuse.png-029527bf642ad91ff25be2dc68710a34.ctex"]
+source_file="res://Assets/Textures/UI/tab_unselected.png"
+dest_files=["res://.godot/imported/tab_unselected.png-7aca0e20b49026f8157a26b070f90c21.ctex"]
 
 [params]
 
