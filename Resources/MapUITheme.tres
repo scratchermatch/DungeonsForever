@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=19 format=3 uid="uid://d23uonw3k6nv4"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://d23uonw3k6nv4"]
 
 [ext_resource type="Texture2D" uid="uid://bkw0tn6nah4di" path="res://Assets/Textures/UI/frame_small.png" id="1_wfomb"]
 [ext_resource type="Texture2D" uid="uid://cd2hwdog5wkfi" path="res://Assets/Textures/UI/frame_thick.png" id="2_i8xh1"]
@@ -21,30 +21,6 @@ texture_margin_left = 12.0
 texture_margin_top = 12.0
 texture_margin_right = 12.0
 texture_margin_bottom = 12.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r2ifv"]
-texture = ExtResource("3_hixca")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_leae8"]
-texture = ExtResource("3_hixca")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lx32m"]
-texture = ExtResource("3_hixca")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tq14x"]
-texture = ExtResource("3_hixca")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0mh8p"]
-texture = ExtResource("3_hixca")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_imal0"]
-texture = ExtResource("3_hixca")
-texture_margin_left = 12.0
-texture_margin_top = 12.0
-texture_margin_right = 12.0
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_us8nm"]
-texture = ExtResource("3_hixca")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jajj0"]
 load_path = "res://.godot/imported/tab_hovered.png-88e3149c61a578a9ae96e23fc942b588.ctex"
@@ -80,21 +56,15 @@ expand_margin_right = 6.0
 [resource]
 default_base_scale = 2.0
 default_font_size = 32
+CheckBox/constants/h_separation = 10
 HSeparator/styles/separator = SubResource("StyleBoxFlat_0lqow")
-MarginContainer/constants/margin_bottom = 22
-MarginContainer/constants/margin_left = 22
-MarginContainer/constants/margin_right = 22
-MarginContainer/constants/margin_top = 22
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
 Panel/styles/panel = SubResource("StyleBoxTexture_0eulq")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_0i751")
 ScrollContainer/styles/focus = null
-TabBar/styles/button_highlight = SubResource("StyleBoxTexture_r2ifv")
-TabBar/styles/button_pressed = SubResource("StyleBoxTexture_leae8")
-TabBar/styles/tab_disabled = SubResource("StyleBoxTexture_lx32m")
-TabBar/styles/tab_focus = SubResource("StyleBoxTexture_tq14x")
-TabBar/styles/tab_hovered = SubResource("StyleBoxTexture_0mh8p")
-TabBar/styles/tab_selected = SubResource("StyleBoxTexture_imal0")
-TabBar/styles/tab_unselected = SubResource("StyleBoxTexture_us8nm")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_5hgru")
 TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_4lbt1")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_u15oy")

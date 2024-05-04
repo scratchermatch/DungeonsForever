@@ -2,7 +2,7 @@ extends OptionButton
 
 #These are populated by construct_sources()
 var race_sources:Array = [] #All possible book sources
-var source_dict:Dictionary = {} # race: book
+var source_dict:Dictionary = {} #in the form {race: book}
 
 
 # Called when the node enters the scene tree for the first time.
@@ -17,7 +17,7 @@ func _ready():
 
 func construct_sources():
 	print("Parsing race sources...")
-	for race in DataLoader.races:
+	for race in DataLoader.races["race"]:
 		source_dict[race["name"]] = race["source"]
 		if !race["source"] in race_sources: 
 			race_sources.append(race["source"])
