@@ -1,15 +1,28 @@
-[gd_scene load_steps=11 format=3 uid="uid://dxo660f05aaf7"]
+[gd_scene load_steps=24 format=3 uid="uid://dxo660f05aaf7"]
 
+[ext_resource type="Script" path="res://Scripts/UI/StrEdit.gd" id="1_juvyd"]
 [ext_resource type="Script" path="res://Scripts/UI/ClassOptions.gd" id="1_nvf8k"]
 [ext_resource type="Script" path="res://Scripts/UI/SubclassOptions.gd" id="2_1t4xf"]
 [ext_resource type="Script" path="res://Scripts/UI/RaceOptions.gd" id="2_2phtv"]
+[ext_resource type="Script" path="res://Scripts/UI/DexEdit.gd" id="2_psybm"]
 [ext_resource type="Script" path="res://Scripts/UI/RaceBookOptions.gd" id="3_2euwp"]
+[ext_resource type="Script" path="res://Scripts/UI/ConEdit.gd" id="3_8jfw0"]
+[ext_resource type="Script" path="res://Scenes/IntEdit.gd" id="4_6wjjy"]
 [ext_resource type="Script" path="res://Scripts/UI/SubraceOptions.gd" id="4_n3t7g"]
 [ext_resource type="Script" path="res://Scripts/UI/BackgroundOptions.gd" id="5_6albi"]
+[ext_resource type="Script" path="res://Scripts/UI/WisEdit.gd" id="5_fym0e"]
+[ext_resource type="Script" path="res://Scripts/UI/ChaEdit.gd" id="6_b5w70"]
 [ext_resource type="Script" path="res://Scripts/UI/HitDice.gd" id="6_o1grw"]
+[ext_resource type="Script" path="res://Scripts/UI/NameEdit.gd" id="7_mtep0"]
 [ext_resource type="Script" path="res://Scripts/UI/NextButton.gd" id="7_r1l2i"]
+[ext_resource type="Script" path="res://Scripts/UI/LevelEdit.gd" id="8_3450y"]
+[ext_resource type="Script" path="res://Scripts/UI/BackButton.gd" id="8_cuyom"]
 [ext_resource type="Script" path="res://Scripts/UI/BackToBasicsButton.gd" id="9_ywplu"]
 [ext_resource type="Script" path="res://Scripts/UI/BackpackButton.gd" id="10_a8wwj"]
+[ext_resource type="Script" path="res://Scripts/UI/BackToFeaturesButton.gd" id="12_ovr15"]
+[ext_resource type="Script" path="res://Scripts/UI/SaveCharacterButton.gd" id="13_t0110"]
+[ext_resource type="Script" path="res://Scripts/UI/HitPointsEdit.gd" id="14_0vnm5"]
+[ext_resource type="Script" path="res://Scripts/UI/AlignmentOptions.gd" id="17_x1oq1"]
 
 [node name="CharacterCreationScreen" type="Control"]
 layout_mode = 3
@@ -52,72 +65,85 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 columns = 6
 
-[node name="Strength" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="StrLabel" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Strength"
 horizontal_alignment = 1
 
-[node name="Dexterity" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="DexLabel" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Dexterity"
 horizontal_alignment = 1
 
-[node name="Constitution" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="ConLabel" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Constitution"
 horizontal_alignment = 1
 
-[node name="Intelligence" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="IntLabel" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Intelligence"
 horizontal_alignment = 1
 
-[node name="Wisdom" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="WisLabel" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Wisdom"
 horizontal_alignment = 1
 
-[node name="Charisma" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="ChaLabel" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Charisma"
 horizontal_alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="StrEdit" type="SpinBox" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "8"
+max_value = 20.0
+value = 8.0
+alignment = 1
+script = ExtResource("1_juvyd")
 
-[node name="LineEdit2" type="LineEdit" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="DexEdit" type="SpinBox" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "8"
+value = 8.0
+alignment = 1
+script = ExtResource("2_psybm")
 
-[node name="LineEdit3" type="LineEdit" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="ConEdit" type="SpinBox" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
-placeholder_text = "8"
+value = 8.0
+alignment = 1
+script = ExtResource("3_8jfw0")
 
-[node name="LineEdit4" type="LineEdit" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="IntEdit" type="SpinBox" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
-placeholder_text = "8"
+value = 8.0
+alignment = 1
+script = ExtResource("4_6wjjy")
 
-[node name="LineEdit5" type="LineEdit" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="WisEdit" type="SpinBox" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
-placeholder_text = "8"
+value = 8.0
+alignment = 1
+script = ExtResource("5_fym0e")
 
-[node name="LineEdit6" type="LineEdit" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
+[node name="ChaEdit" type="SpinBox" parent="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid"]
 layout_mode = 2
-placeholder_text = "8"
+value = 8.0
+alignment = 1
+script = ExtResource("6_b5w70")
 
 [node name="StatSelectionOptions" type="OptionButton" parent="CharacterBasicsScreen/MarginContainer/MainVBox"]
 layout_mode = 2
 size_flags_vertical = 3
-item_count = 5
+item_count = 4
 selected = 0
 popup/item_0/text = "Manual"
 popup/item_0/id = 4
@@ -127,8 +153,6 @@ popup/item_2/text = "Point Buy"
 popup/item_2/id = 1
 popup/item_3/text = "Roll Dice"
 popup/item_3/id = 2
-popup/item_4/text = "Custom"
-popup/item_4/id = 3
 
 [node name="BasicInfoHBox" type="HBoxContainer" parent="CharacterBasicsScreen/MarginContainer/MainVBox"]
 layout_mode = 2
@@ -149,15 +173,17 @@ size_flags_vertical = 3
 text = "Name"
 horizontal_alignment = 1
 
-[node name="Name" type="LineEdit" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
+[node name="NameEdit" type="LineEdit" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 placeholder_text = "New Character"
+max_length = 30
 clear_button_enabled = true
+script = ExtResource("7_mtep0")
 
-[node name="Level" type="SpinBox" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
+[node name="LevelEdit" type="SpinBox" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -166,6 +192,8 @@ size_flags_stretch_ratio = 1.13
 min_value = 1.0
 max_value = 20.0
 value = 1.0
+prefix = "Level"
+script = ExtResource("8_3450y")
 
 [node name="ClassLabel" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid"]
 layout_mode = 2
@@ -242,23 +270,25 @@ alignment = 1
 layout_mode = 2
 text = "Hit Points: "
 
-[node name="HitPoints" type="SpinBox" parent="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox"]
+[node name="HitPointsEdit" type="SpinBox" parent="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 min_value = 1.0
 max_value = 1000.0
 value = 1.0
+script = ExtResource("14_0vnm5")
 
 [node name="HitDiceLabel" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox"]
 layout_mode = 2
 text = "Hit Dice: "
 
 [node name="HitDice" type="Label" parent="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "4d8"
 script = ExtResource("6_o1grw")
 
-[node name="OptionButton" type="OptionButton" parent="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox"]
+[node name="HitPointOptions" type="OptionButton" parent="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 item_count = 4
@@ -272,7 +302,7 @@ popup/item_2/id = 2
 popup/item_3/text = "Roll"
 popup/item_3/id = 3
 
-[node name="CheckBox" type="CheckBox" parent="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox"]
+[node name="FirstLevelMaxCheckbox" type="CheckBox" parent="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 button_pressed = true
@@ -322,6 +352,7 @@ popup/item_7/text = "Neutral Evil"
 popup/item_7/id = 8
 popup/item_8/text = "Chaotic Evil"
 popup/item_8/id = 7
+script = ExtResource("17_x1oq1")
 
 [node name="ButtonHBox" type="HBoxContainer" parent="CharacterBasicsScreen/MarginContainer/MainVBox"]
 layout_mode = 2
@@ -332,6 +363,7 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Back to Main Menu"
+script = ExtResource("8_cuyom")
 
 [node name="NextButton" type="Button" parent="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox"]
 layout_mode = 2
@@ -413,9 +445,12 @@ script = ExtResource("10_a8wwj")
 [node name="BackpackCreationScreen" type="PanelContainer" parent="."]
 unique_name_in_owner = true
 visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="BackpackCreationScreen"]
 layout_mode = 2
@@ -425,11 +460,45 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BackpackCreationScreen/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
-[connection signal="value_changed" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/Level" to="CharacterBasicsScreen/MarginContainer/MainVBox/BackgroundVBox/MulticlassButton" method="_on_level_value_changed"]
-[connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/ClassOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox/HitDice" method="_on_class_options_item_selected"]
+[node name="BackToFeaturesButton" type="Button" parent="BackpackCreationScreen/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Back to Character Features
+"
+script = ExtResource("12_ovr15")
+
+[node name="SaveCharacterButton" type="Button" parent="BackpackCreationScreen/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Save Character
+"
+script = ExtResource("13_t0110")
+
+[connection signal="value_changed" from="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid/StrEdit" to="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid/StrEdit" method="_on_value_changed"]
+[connection signal="value_changed" from="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid/DexEdit" to="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid/DexEdit" method="_on_value_changed"]
+[connection signal="value_changed" from="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid/ConEdit" to="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid/ConEdit" method="_on_value_changed"]
+[connection signal="value_changed" from="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid/IntEdit" to="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid/IntEdit" method="_on_value_changed"]
+[connection signal="value_changed" from="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid/WisEdit" to="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid/WisEdit" method="_on_value_changed"]
+[connection signal="value_changed" from="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid/ChaEdit" to="CharacterBasicsScreen/MarginContainer/MainVBox/StatHBox/StatGrid/ChaEdit" method="_on_value_changed"]
+[connection signal="text_changed" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/NameEdit" to="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/NameEdit" method="_on_text_changed"]
+[connection signal="value_changed" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/LevelEdit" to="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/LevelEdit" method="_on_value_changed"]
+[connection signal="value_changed" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/LevelEdit" to="CharacterBasicsScreen/MarginContainer/MainVBox/BackgroundVBox/MulticlassButton" method="_on_level_value_changed"]
+[connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/ClassOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/ClassOptions" method="_on_item_selected"]
 [connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/ClassOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/SubclassOptions" method="_on_class_options_item_selected"]
+[connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/ClassOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox/HitDice" method="_on_class_options_item_selected"]
+[connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/SubclassOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/SubclassOptions" method="_on_item_selected"]
+[connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/RaceOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/RaceOptions" method="_on_item_selected"]
 [connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/RaceOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/SubraceOptions" method="_on_race_options_item_selected"]
+[connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/SubraceOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/SubraceOptions" method="_on_item_selected"]
+[connection signal="value_changed" from="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox/HitPointsEdit" to="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox/HitPointsEdit" method="_on_value_changed"]
+[connection signal="ready" from="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox/HitDice" to="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox/HitPointsEdit" method="_on_hit_dice_ready"]
+[connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BackgroundVBox/BackgroundOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BackgroundVBox/BackgroundOptions" method="_on_item_selected"]
+[connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BackgroundVBox/AlignmentOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BackgroundVBox/AlignmentOptions" method="_on_item_selected"]
+[connection signal="pressed" from="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox/BackButton" to="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox/BackButton" method="_on_pressed"]
 [connection signal="pressed" from="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox/NextButton" to="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox/NextButton" method="_on_pressed"]
 [connection signal="pressed" from="CharacterFeaturesScreen/MarginContainer/VBoxContainer/ButtonHBox/BackToBasicsButton" to="CharacterFeaturesScreen/MarginContainer/VBoxContainer/ButtonHBox/BackToBasicsButton" method="_on_pressed"]
 [connection signal="pressed" from="CharacterFeaturesScreen/MarginContainer/VBoxContainer/ButtonHBox/BackpackButton" to="CharacterFeaturesScreen/MarginContainer/VBoxContainer/ButtonHBox/BackpackButton" method="_on_pressed"]
+[connection signal="pressed" from="BackpackCreationScreen/MarginContainer/VBoxContainer/HBoxContainer/BackToFeaturesButton" to="BackpackCreationScreen/MarginContainer/VBoxContainer/HBoxContainer/BackToFeaturesButton" method="_on_pressed"]
+[connection signal="pressed" from="BackpackCreationScreen/MarginContainer/VBoxContainer/HBoxContainer/SaveCharacterButton" to="BackpackCreationScreen/MarginContainer/VBoxContainer/HBoxContainer/SaveCharacterButton" method="_on_pressed"]

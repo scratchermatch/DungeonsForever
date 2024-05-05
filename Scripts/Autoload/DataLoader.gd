@@ -37,16 +37,16 @@ var classes:Dictionary #In the form class_name: class_info
 func _ready():
 	items = load_file(items_filepath)["item"]
 	races = load_file(races_filepath)
-	construct_races()
+	_construct_races()
 	books = load_file(books_filepath)["book"]
-	construct_books()
+	_construct_books()
 	backgrounds = load_file(backgrounds_filepath)["background"]
 	for filepath in class_filepaths:
 		var temp = load_file(filepath)
 		classes[temp["class"][0]["name"]] = temp
 		
 
-func check_exists(filepath):
+func _check_exists(filepath):
 	print("Opening file at " + filepath)
 	if not FileAccess.file_exists(filepath):
 		#Make sure that our data file is here
@@ -54,32 +54,32 @@ func check_exists(filepath):
 		return false
 	return true
 
-func read_file(filepath):
+func _read_file(filepath):
 	#Open, read, and close the file
 	var file = FileAccess.open(filepath, FileAccess.READ)
 	var json_string = file.get_as_text()
 	file.close()
 	return json_string
 
-func parse_data(json):
+func _parse_data(json):
 	print("Parsing JSON...")
 	#Parse the data and load it into the items array
 	var parsed_data = JSON.parse_string(json)
 	return parsed_data
 	
 func load_file(filepath):
-	if !check_exists(filepath):
+	if !_check_exists(filepath):
 		return
-	var json_string = read_file(filepath)
-	return parse_data(json_string)	
+	var json_string = _read_file(filepath)
+	return _parse_data(json_string)	
 
-func construct_books():
+func _construct_books():
 	#Create a data structure to hold translations for book IDs
 	print("Translating book mnemonics")
 	for book in books:
 		book_translations[book["id"]] = book["name"]
 
-func construct_races():
+func _construct_races():
 	print("Constructing race sources")
 	for race in races["race"]:
 		if race["source"] != "PHB":

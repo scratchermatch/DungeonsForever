@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/UI/LoadCharacter.gd" id="1_h3dkv"]
 [ext_resource type="Script" path="res://Scripts/UI/CreateButton.gd" id="1_mivtv"]
-[ext_resource type="Script" path="res://Scenes/QuitButton.gd" id="3_gn4yy"]
+[ext_resource type="Script" path="res://Scripts/UI/QuitButton.gd" id="3_gn4yy"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
