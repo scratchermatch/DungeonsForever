@@ -26,7 +26,8 @@ var class_filepaths = [
 	"res://Assets/data/class/class-paladin.json",
 	"res://Assets/data/class/class-ranger.json",
 	"res://Assets/data/class/class-rogue.json",
-	"res://Assets/data/class/class-sidekick.json",
+	#The sidekick class has a different format than the rest, so it breaks
+	#"res://Assets/data/class/class-sidekick.json",
 	"res://Assets/data/class/class-sorcerer.json",
 	"res://Assets/data/class/class-warlock.json",
 	"res://Assets/data/class/class-wizard.json"

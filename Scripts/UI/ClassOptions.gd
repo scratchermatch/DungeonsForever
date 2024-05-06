@@ -8,5 +8,6 @@ func _ready():
 
 func _on_item_selected(index):
 	####CHANGE LATER WHEN MULTICLASSING IS IMPLEMENTED!!!!!!!!!!!!
+	PlayerLoader.data["classes"] = {}
 	PlayerLoader.data["classes"][get_item_text(index)] = PlayerLoader.data["level"]
 	###THIS CAN BE BUGGY
