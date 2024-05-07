@@ -1,15 +1,15 @@
 [gd_scene load_steps=13 format=3 uid="uid://c0mt85flo3qx7"]
 
 [ext_resource type="Texture2D" uid="uid://1m123efbed5w" path="res://Assets/Textures/OutdoorLandscapeTiles.png" id="1_wo3ii"]
-[ext_resource type="Script" path="res://Scripts/MapCamera.gd" id="2_gx5xc"]
+[ext_resource type="Script" path="res://Scripts/UI/MapScreen/MapCamera.gd" id="2_gx5xc"]
 [ext_resource type="Theme" uid="uid://d23uonw3k6nv4" path="res://Resources/MapUITheme.tres" id="3_1sj53"]
-[ext_resource type="Script" path="res://Scripts/UI/OpenBackpack.gd" id="3_1tjrf"]
-[ext_resource type="Script" path="res://Scripts/UI/DraggablePanelContainer.gd" id="4_7lb5o"]
-[ext_resource type="Script" path="res://Scripts/UI/Inventory.gd" id="4_t17d6"]
-[ext_resource type="Script" path="res://Scripts/UI/CharacterContainer.gd" id="6_6jjo4"]
+[ext_resource type="Script" path="res://Scripts/UI/MapScreen/OpenBackpack.gd" id="3_1tjrf"]
+[ext_resource type="Script" path="res://Scripts/UI/MapScreen/DraggablePanelContainer.gd" id="4_7lb5o"]
+[ext_resource type="Script" path="res://Scripts/UI/MapScreen/Inventory.gd" id="4_t17d6"]
+[ext_resource type="Script" path="res://Scripts/UI/MapScreen/CharacterContainer.gd" id="6_6jjo4"]
 [ext_resource type="Texture2D" uid="uid://bsx8a18pproaf" path="res://Assets/Textures/icon.svg" id="7_ca5s1"]
-[ext_resource type="Script" path="res://Scripts/UI/StatOptions.gd" id="8_gytk1"]
-[ext_resource type="Script" path="res://Scripts/UI/DebugInventory.gd" id="10_crrua"]
+[ext_resource type="Script" path="res://Scripts/UI/MapScreen/StatOptions.gd" id="8_gytk1"]
+[ext_resource type="Script" path="res://Scripts/UI/MapScreen/DebugInventory.gd" id="10_crrua"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_54ct3"]
 texture = ExtResource("1_wo3ii")

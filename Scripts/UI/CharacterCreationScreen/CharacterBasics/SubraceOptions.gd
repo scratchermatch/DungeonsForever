@@ -8,6 +8,7 @@ func _ready():
 
 func _on_race_options_item_selected(index):
 	populate_subraces(index)
+	PlayerLoader.data["subrace"] = get_item_text(selected)
 
 func populate_subraces(index):
 	clear()

@@ -1,28 +1,28 @@
 [gd_scene load_steps=24 format=3 uid="uid://dxo660f05aaf7"]
 
-[ext_resource type="Script" path="res://Scripts/UI/StrEdit.gd" id="1_juvyd"]
-[ext_resource type="Script" path="res://Scripts/UI/ClassOptions.gd" id="1_nvf8k"]
-[ext_resource type="Script" path="res://Scripts/UI/SubclassOptions.gd" id="2_1t4xf"]
-[ext_resource type="Script" path="res://Scripts/UI/RaceOptions.gd" id="2_2phtv"]
-[ext_resource type="Script" path="res://Scripts/UI/DexEdit.gd" id="2_psybm"]
-[ext_resource type="Script" path="res://Scripts/UI/RaceBookOptions.gd" id="3_2euwp"]
-[ext_resource type="Script" path="res://Scripts/UI/ConEdit.gd" id="3_8jfw0"]
-[ext_resource type="Script" path="res://Scripts/UI/IntEdit.gd" id="4_6wjjy"]
-[ext_resource type="Script" path="res://Scripts/UI/SubraceOptions.gd" id="4_n3t7g"]
-[ext_resource type="Script" path="res://Scripts/UI/BackgroundOptions.gd" id="5_6albi"]
-[ext_resource type="Script" path="res://Scripts/UI/WisEdit.gd" id="5_fym0e"]
-[ext_resource type="Script" path="res://Scripts/UI/ChaEdit.gd" id="6_b5w70"]
-[ext_resource type="Script" path="res://Scripts/UI/HitDice.gd" id="6_o1grw"]
-[ext_resource type="Script" path="res://Scripts/UI/NameEdit.gd" id="7_mtep0"]
-[ext_resource type="Script" path="res://Scripts/UI/NextButton.gd" id="7_r1l2i"]
-[ext_resource type="Script" path="res://Scripts/UI/LevelEdit.gd" id="8_3450y"]
-[ext_resource type="Script" path="res://Scripts/UI/BackButton.gd" id="8_cuyom"]
-[ext_resource type="Script" path="res://Scripts/UI/BackToBasicsButton.gd" id="9_ywplu"]
-[ext_resource type="Script" path="res://Scripts/UI/BackpackButton.gd" id="10_a8wwj"]
-[ext_resource type="Script" path="res://Scripts/UI/BackToFeaturesButton.gd" id="12_ovr15"]
-[ext_resource type="Script" path="res://Scripts/UI/SaveCharacterButton.gd" id="13_t0110"]
-[ext_resource type="Script" path="res://Scripts/UI/HitPointsEdit.gd" id="14_0vnm5"]
-[ext_resource type="Script" path="res://Scripts/UI/AlignmentOptions.gd" id="17_x1oq1"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterBasics/StrEdit.gd" id="1_juvyd"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterBasics/ClassOptions.gd" id="1_nvf8k"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterBasics/SubclassOptions.gd" id="2_1t4xf"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterBasics/RaceOptions.gd" id="2_2phtv"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterBasics/DexEdit.gd" id="2_psybm"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterBasics/RaceBookOptions.gd" id="3_2euwp"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterBasics/ConEdit.gd" id="3_8jfw0"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterBasics/IntEdit.gd" id="4_6wjjy"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterBasics/SubraceOptions.gd" id="4_n3t7g"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterBasics/BackgroundOptions.gd" id="5_6albi"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterBasics/WisEdit.gd" id="5_fym0e"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterBasics/ChaEdit.gd" id="6_b5w70"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterBasics/HitDice.gd" id="6_o1grw"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterBasics/NameEdit.gd" id="7_mtep0"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterBasics/NextToFeaturesButton.gd" id="7_r1l2i"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterBasics/LevelEdit.gd" id="8_3450y"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterBasics/BackToMainMenuButton.gd" id="8_cuyom"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterFeatures/BackToBasicsButton.gd" id="9_ywplu"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterFeatures/NextToBackpackButton.gd" id="10_a8wwj"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/Backpack/BackToFeaturesButton.gd" id="12_ovr15"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/Backpack/SaveCharacterButton.gd" id="13_t0110"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterBasics/HitPointsEdit.gd" id="14_0vnm5"]
+[ext_resource type="Script" path="res://Scripts/UI/CharacterCreationScreen/CharacterBasics/AlignmentOptions.gd" id="17_x1oq1"]
 
 [node name="CharacterCreationScreen" type="Control"]
 layout_mode = 3
@@ -359,13 +359,13 @@ layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="BackButton" type="Button" parent="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox"]
+[node name="BackToMainMenuButton" type="Button" parent="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Back to Main Menu"
 script = ExtResource("8_cuyom")
 
-[node name="NextButton" type="Button" parent="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox"]
+[node name="NextToFeaturesButton" type="Button" parent="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Next to Features and Skills"
@@ -436,7 +436,7 @@ size_flags_horizontal = 3
 text = "Back to Character Basics"
 script = ExtResource("9_ywplu")
 
-[node name="BackpackButton" type="Button" parent="CharacterFeaturesScreen/MarginContainer/VBoxContainer/ButtonHBox"]
+[node name="NextToBackpackButton" type="Button" parent="CharacterFeaturesScreen/MarginContainer/VBoxContainer/ButtonHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Next to Backpack Setup"
@@ -496,9 +496,9 @@ script = ExtResource("13_t0110")
 [connection signal="ready" from="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox/HitDice" to="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox/HitPointsEdit" method="_on_hit_dice_ready"]
 [connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BackgroundVBox/BackgroundOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BackgroundVBox/BackgroundOptions" method="_on_item_selected"]
 [connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BackgroundVBox/AlignmentOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BackgroundVBox/AlignmentOptions" method="_on_item_selected"]
-[connection signal="pressed" from="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox/BackButton" to="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox/BackButton" method="_on_pressed"]
-[connection signal="pressed" from="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox/NextButton" to="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox/NextButton" method="_on_pressed"]
+[connection signal="pressed" from="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox/BackToMainMenuButton" to="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox/BackToMainMenuButton" method="_on_pressed"]
+[connection signal="pressed" from="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox/NextToFeaturesButton" to="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox/NextToFeaturesButton" method="_on_pressed"]
 [connection signal="pressed" from="CharacterFeaturesScreen/MarginContainer/VBoxContainer/ButtonHBox/BackToBasicsButton" to="CharacterFeaturesScreen/MarginContainer/VBoxContainer/ButtonHBox/BackToBasicsButton" method="_on_pressed"]
-[connection signal="pressed" from="CharacterFeaturesScreen/MarginContainer/VBoxContainer/ButtonHBox/BackpackButton" to="CharacterFeaturesScreen/MarginContainer/VBoxContainer/ButtonHBox/BackpackButton" method="_on_pressed"]
+[connection signal="pressed" from="CharacterFeaturesScreen/MarginContainer/VBoxContainer/ButtonHBox/NextToBackpackButton" to="CharacterFeaturesScreen/MarginContainer/VBoxContainer/ButtonHBox/NextToBackpackButton" method="_on_pressed"]
 [connection signal="pressed" from="BackpackCreationScreen/MarginContainer/VBoxContainer/HBoxContainer/BackToFeaturesButton" to="BackpackCreationScreen/MarginContainer/VBoxContainer/HBoxContainer/BackToFeaturesButton" method="_on_pressed"]
 [connection signal="pressed" from="BackpackCreationScreen/MarginContainer/VBoxContainer/HBoxContainer/SaveCharacterButton" to="BackpackCreationScreen/MarginContainer/VBoxContainer/HBoxContainer/SaveCharacterButton" method="_on_pressed"]

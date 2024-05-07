@@ -1,0 +1,183 @@
+[gd_scene load_steps=3 format=3 uid="uid://br00ou65b02tf"]
+
+[ext_resource type="Script" path="res://Scripts/UI/LoadCharacterScreen/player_file_box.gd" id="1_7hblt"]
+[ext_resource type="Texture2D" uid="uid://bsx8a18pproaf" path="res://Assets/Textures/icon.svg" id="1_u8pab"]
+
+[node name="PlayerFileBox" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -758.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7hblt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_u8pab")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="NameLabel" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Name
+"
+horizontal_alignment = 1
+
+[node name="DetailsHBox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="RaceLabel" type="Label" parent="HBoxContainer/VBoxContainer/DetailsHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Race"
+
+[node name="SubraceLabel" type="Label" parent="HBoxContainer/VBoxContainer/DetailsHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Subrace"
+
+[node name="SubclassLabel" type="Label" parent="HBoxContainer/VBoxContainer/DetailsHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Subclass"
+
+[node name="ClassLabel" type="Label" parent="HBoxContainer/VBoxContainer/DetailsHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Class"
+
+[node name="HPHBox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HPLabel" type="Label" parent="HBoxContainer/VBoxContainer/HPHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.27
+text = "Hit Points
+"
+
+[node name="HPBar" type="ProgressBar" parent="HBoxContainer/VBoxContainer/HPHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="XPHBox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="XPLabel" type="Label" parent="HBoxContainer/VBoxContainer/XPHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.27
+text = "Experience"
+
+[node name="XPBar" type="ProgressBar" parent="HBoxContainer/VBoxContainer/XPHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StatsHBox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StatsGridContainer" type="GridContainer" parent="HBoxContainer/VBoxContainer/StatsHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 6
+
+[node name="StrLabel" type="Label" parent="HBoxContainer/VBoxContainer/StatsHBox/StatsGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Strength"
+horizontal_alignment = 1
+
+[node name="DexLabel" type="Label" parent="HBoxContainer/VBoxContainer/StatsHBox/StatsGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Dexterity
+"
+horizontal_alignment = 1
+
+[node name="ConLabel" type="Label" parent="HBoxContainer/VBoxContainer/StatsHBox/StatsGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Constitution
+"
+horizontal_alignment = 1
+
+[node name="IntLabel" type="Label" parent="HBoxContainer/VBoxContainer/StatsHBox/StatsGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Intelligence"
+horizontal_alignment = 1
+
+[node name="WisLabel" type="Label" parent="HBoxContainer/VBoxContainer/StatsHBox/StatsGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Wisdom"
+horizontal_alignment = 1
+
+[node name="ChaLabel" type="Label" parent="HBoxContainer/VBoxContainer/StatsHBox/StatsGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Charisma"
+horizontal_alignment = 1
+
+[node name="Str" type="Label" parent="HBoxContainer/VBoxContainer/StatsHBox/StatsGridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+
+[node name="Dex" type="Label" parent="HBoxContainer/VBoxContainer/StatsHBox/StatsGridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+
+[node name="Con" type="Label" parent="HBoxContainer/VBoxContainer/StatsHBox/StatsGridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+
+[node name="Int" type="Label" parent="HBoxContainer/VBoxContainer/StatsHBox/StatsGridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+
+[node name="Wis" type="Label" parent="HBoxContainer/VBoxContainer/StatsHBox/StatsGridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+
+[node name="Cha" type="Label" parent="HBoxContainer/VBoxContainer/StatsHBox/StatsGridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqcmigs3lu1ln"]
 
-[ext_resource type="Script" path="res://Scripts/UI/LoadCharacter.gd" id="1_h3dkv"]
-[ext_resource type="Script" path="res://Scripts/UI/CreateButton.gd" id="1_mivtv"]
-[ext_resource type="Script" path="res://Scripts/UI/QuitButton.gd" id="3_gn4yy"]
+[ext_resource type="Script" path="res://Scripts/UI/MainMenu/LoadCharacterButton.gd" id="1_h3dkv"]
+[ext_resource type="Script" path="res://Scripts/UI/MainMenu/CreateCharacterButton.gd" id="1_mivtv"]
+[ext_resource type="Script" path="res://Scripts/UI/MainMenu/QuitProgramButton.gd" id="3_gn4yy"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3

@@ -26,6 +26,10 @@ window/size/viewport_width=2160
 window/size/viewport_height=1080
 window/stretch/aspect="ignore"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [gui]
 
 theme/custom="res://Resources/MapUITheme.tres"

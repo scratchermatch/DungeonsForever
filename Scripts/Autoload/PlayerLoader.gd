@@ -33,8 +33,6 @@ var proficiency_bonus:int
 var speed:Dictionary #Walking: 30, Flying: 30, etc.
 var save_proficiencies:Dictionary
 
-var character_filepath = "user://savegame.json"
-
 var data = defaults
 
 func load_character(filepath):
@@ -44,7 +42,7 @@ func save_character():
 	if data["name"] == "":
 		print("You aint typed nothin kid")
 		return
-	var filename = "user://" + data["name"].replace(" ", "_") + ".json"
+	var filename = "user://" + data["name"].replace(" ", "_") + ".dfc"
 	var json_string = JSON.stringify(data, "\t")
 	var save_game = FileAccess.open(filename, FileAccess.WRITE)
 	save_game.store_line(json_string)
