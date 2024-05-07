@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://br00ou65b02tf"]
+[gd_scene load_steps=4 format=3 uid="uid://br00ou65b02tf"]
 
-[ext_resource type="Script" path="res://Scripts/UI/LoadCharacterScreen/player_file_box.gd" id="1_7hblt"]
+[ext_resource type="Script" path="res://Scripts/UI/LoadCharacterScreen/player_file_box.gd" id="1_f0hne"]
 [ext_resource type="Texture2D" uid="uid://bsx8a18pproaf" path="res://Assets/Textures/icon.svg" id="1_u8pab"]
+[ext_resource type="Script" path="res://Scripts/UI/LoadCharacterScreen/PlayerFileButton.gd" id="2_gxrmt"]
 
 [node name="PlayerFileBox" type="PanelContainer"]
 anchors_preset = 15
@@ -10,7 +11,10 @@ anchor_bottom = 1.0
 offset_bottom = -758.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_7hblt")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+script = ExtResource("1_f0hne")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -41,29 +45,29 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="RaceLabel" type="Label" parent="HBoxContainer/VBoxContainer/DetailsHBox"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Race"
-
 [node name="SubraceLabel" type="Label" parent="HBoxContainer/VBoxContainer/DetailsHBox"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Subrace"
 
-[node name="SubclassLabel" type="Label" parent="HBoxContainer/VBoxContainer/DetailsHBox"]
+[node name="RaceLabel" type="Label" parent="HBoxContainer/VBoxContainer/DetailsHBox"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Subclass"
+text = "Race"
 
 [node name="ClassLabel" type="Label" parent="HBoxContainer/VBoxContainer/DetailsHBox"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Class"
+
+[node name="SubclassLabel" type="Label" parent="HBoxContainer/VBoxContainer/DetailsHBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Subclass"
 
 [node name="HPHBox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -181,3 +185,11 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "0"
 horizontal_alignment = 1
+
+[node name="PlayerFileButton" type="Button" parent="."]
+layout_mode = 2
+mouse_filter = 1
+flat = true
+script = ExtResource("2_gxrmt")
+
+[connection signal="pressed" from="PlayerFileButton" to="PlayerFileButton" method="_on_pressed"]
