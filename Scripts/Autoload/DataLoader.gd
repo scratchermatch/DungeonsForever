@@ -1,4 +1,7 @@
 extends Node
+#Data Loader should only be reading and parsing files. It can store data
+#structures universal to everybody if they are alternatives to raw data.
+#All data stored here should be read-only
 
 var book_translations:Dictionary
 var default_races:Array #Adds uniquity to conflicting race names

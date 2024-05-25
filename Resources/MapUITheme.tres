@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://d23uonw3k6nv4"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://d23uonw3k6nv4"]
 
 [ext_resource type="Texture2D" uid="uid://bkw0tn6nah4di" path="res://Assets/Textures/UI/frame_small.png" id="1_wfomb"]
 [ext_resource type="Texture2D" uid="uid://cd2hwdog5wkfi" path="res://Assets/Textures/UI/frame_thick.png" id="2_i8xh1"]
@@ -53,6 +53,11 @@ expand_margin_left = 6.0
 expand_margin_top = 5.0
 expand_margin_right = 6.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkt8s"]
+content_margin_left = 20.0
+content_margin_right = 20.0
+bg_color = Color(0, 0, 0, 0.615686)
+
 [resource]
 default_base_scale = 2.0
 default_font_size = 32
@@ -68,3 +73,4 @@ ScrollContainer/styles/focus = null
 TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_5hgru")
 TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_4lbt1")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_u15oy")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_nkt8s")

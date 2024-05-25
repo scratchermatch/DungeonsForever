@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dxo660f05aaf7"]
+[gd_scene load_steps=26 format=3 uid="uid://dxo660f05aaf7"]
 
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/StrEdit.gd" id="1_4w1gr"]
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/DexEdit.gd" id="2_rwbvj"]
@@ -14,7 +14,13 @@
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/SubraceOptions.gd" id="12_evmo8"]
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/RaceBookOptions.gd" id="13_g2ogt"]
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/HitPointsEdit.gd" id="14_fomt5"]
+<<<<<<< HEAD
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/HitDice.gd" id="15_0fcad"]
+=======
+[ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/ClassFeaturesButton.gd" id="14_js6af"]
+[ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/HitDice.gd" id="15_0fcad"]
+[ext_resource type="Script" path="res://Scenes/UI/CreateCharacterScreen/CharacterBasics/RaceFeaturesButton.gd" id="15_qjwc3"]
+>>>>>>> 0bd3c69 (Attempted to stop the large file from being tracked once and for all)
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/BackgroundOptions.gd" id="16_p0hty"]
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/AlignmentOptions.gd" id="17_ne5us"]
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/BackToMainMenuButton.gd" id="18_0eqix"]
@@ -254,11 +260,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Class Features
 "
+script = ExtResource("14_js6af")
 
 [node name="RaceFeaturesButton" type="Button" parent="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Race Features"
+script = ExtResource("15_qjwc3")
 
 [node name="HPHBox" type="HBoxContainer" parent="CharacterBasicsScreen/MarginContainer/MainVBox"]
 layout_mode = 2
@@ -492,6 +500,8 @@ script = ExtResource("23_ju7px")
 [connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/RaceOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/RaceOptions" method="_on_item_selected"]
 [connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/RaceOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/SubraceOptions" method="_on_race_options_item_selected"]
 [connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/SubraceOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/SubraceOptions" method="_on_item_selected"]
+[connection signal="pressed" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/ClassFeaturesButton" to="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/ClassFeaturesButton" method="_on_pressed"]
+[connection signal="pressed" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/RaceFeaturesButton" to="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/RaceFeaturesButton" method="_on_pressed"]
 [connection signal="value_changed" from="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox/HitPointsEdit" to="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox/HitPointsEdit" method="_on_value_changed"]
 [connection signal="ready" from="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox/HitDice" to="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox/HitPointsEdit" method="_on_hit_dice_ready"]
 [connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BackgroundVBox/BackgroundOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BackgroundVBox/BackgroundOptions" method="_on_item_selected"]

@@ -1,5 +1,6 @@
 extends Node
-
+#Player loader holds information about the current player, stats, features, etc.
+#For everybody to share around.
 var characters:Array #Array of located character files
 
 #To be read from the character file. Contains default values here.

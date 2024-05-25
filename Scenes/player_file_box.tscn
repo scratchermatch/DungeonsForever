@@ -1,6 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://br00ou65b02tf"]
 
+<<<<<<< HEAD
 [ext_resource type="Script" path="res://Scripts/UI/LoadCharacterScreen/player_file_box.gd" id="1_f0hne"]
+=======
+[ext_resource type="Script" path="res://Scripts/UI/LoadCharacterScreen/PlayerFileBox.gd" id="1_tges6"]
+>>>>>>> 0bd3c69 (Attempted to stop the large file from being tracked once and for all)
 [ext_resource type="Texture2D" uid="uid://bsx8a18pproaf" path="res://Assets/Textures/icon.svg" id="1_u8pab"]
 [ext_resource type="Script" path="res://Scripts/UI/LoadCharacterScreen/PlayerFileButton.gd" id="2_gxrmt"]
 
@@ -12,9 +16,15 @@ offset_bottom = -758.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
+<<<<<<< HEAD
 size_flags_vertical = 3
 mouse_filter = 1
 script = ExtResource("1_f0hne")
+=======
+size_flags_vertical = 4
+mouse_filter = 1
+script = ExtResource("1_tges6")
+>>>>>>> 0bd3c69 (Attempted to stop the large file from being tracked once and for all)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
