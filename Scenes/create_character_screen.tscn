@@ -14,13 +14,9 @@
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/SubraceOptions.gd" id="12_evmo8"]
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/RaceBookOptions.gd" id="13_g2ogt"]
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/HitPointsEdit.gd" id="14_fomt5"]
-<<<<<<< HEAD
-[ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/HitDice.gd" id="15_0fcad"]
-=======
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/ClassFeaturesButton.gd" id="14_js6af"]
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/HitDice.gd" id="15_0fcad"]
 [ext_resource type="Script" path="res://Scenes/UI/CreateCharacterScreen/CharacterBasics/RaceFeaturesButton.gd" id="15_qjwc3"]
->>>>>>> 0bd3c69 (Attempted to stop the large file from being tracked once and for all)
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/BackgroundOptions.gd" id="16_p0hty"]
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/AlignmentOptions.gd" id="17_ne5us"]
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/BackToMainMenuButton.gd" id="18_0eqix"]

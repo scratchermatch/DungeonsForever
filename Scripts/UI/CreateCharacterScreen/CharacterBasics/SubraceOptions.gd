@@ -4,13 +4,6 @@ extends OptionButton
 
 func _ready():
 	populate_subraces(race_options.selected)
-<<<<<<< HEAD
-	PlayerLoader.data["subrace"] = get_item_text(selected)
-
-func _on_race_options_item_selected(index):
-	populate_subraces(index)
-	PlayerLoader.data["subrace"] = get_item_text(selected)
-=======
 	if selected != -1:
 		PlayerLoader.data["subrace"] = get_item_text(selected)
 	else:
@@ -22,8 +15,6 @@ func _on_race_options_item_selected(index):
 		PlayerLoader.data["subrace"] = get_item_text(selected)
 	else:
 		PlayerLoader.data["subrace"] = "None"
-	
->>>>>>> 0bd3c69 (Attempted to stop the large file from being tracked once and for all)
 
 func populate_subraces(index):
 	clear()
