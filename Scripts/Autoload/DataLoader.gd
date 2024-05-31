@@ -111,10 +111,11 @@ func _construct_items():
 	items = _item_dictionary["item"]
 	item_groups = _item_dictionary["itemGroup"]
 
-#creates class features in form: {"class":{"FeatureName":[Feature Level, Feature Description, other data}}
+#creates class features in form: 
+#{"class":{"FeatureName":[Feature Level, Feature Description, other data}}
 func parse_class_feature(feature):
 	var feature_dict:Dictionary = {}
-	var feature_text:String #usually in the form name|class||level
+	var feature_text:String #usually in the form name|class|book|level
 	if typeof(feature) == TYPE_DICTIONARY: #as is with subclass features
 		feature_text = feature["classFeature"]
 		feature_dict["subclass"] = true
@@ -123,9 +124,10 @@ func parse_class_feature(feature):
 		feature_dict["subclass"] = false
 	feature_dict["name"] = feature_text.get_slice("|", 0)
 	feature_dict["class"] = feature_text.get_slice("|", 1)
-	feature_dict["level"] = int(feature_text.get_slice("||", 1))
+	feature_dict["level"] = int(feature_text.get_slice("|", 3))
 	for item in classes[feature_dict["class"]]["classFeature"]:
-		if item["name"] == feature_dict["name"] and item["level"] == feature_dict["level"]:
+		if item["name"] == feature_dict["name"] and \
+		item["level"] == feature_dict["level"]:
 			feature_dict["desc"] = " ".join(item["entries"])
 	return feature_dict
 
@@ -133,32 +135,33 @@ func parse_class_feature(feature):
 #Returns the text without any {}
 #child helps it determine whether it is being called by itself
 func parse_text(text, _child = false):
-	text = text.c_unescape() #The text randomly escapes ' and that breaks the JSON parser
+	text = text.c_unescape() #The text escapes ' and that breaks the JSON parser
 	while "{" in text: #Repeat until all {} are stripped
 		var start = text.find("{")
 		if text[start + 1] == "@":
-			var end = text.find("}") #Tags are always only 1 layer deep
+			var end = find_ending_bracket(text, "{", "}")
 			var final = parse_tag(text.substr(start + 1, end - start -1))
 			var substr = text.substr(start, end - start + 1)
-			#print("\nReplacing ", substr, " with ", final, "\n")
+			print("\nReplacing ", substr, " with ", final, "\n")
 			text = text.replace(substr, final)
 		else:
-			#We now need to find out which } is the correct one because of nesting
+			#We now need to find out which } because of nesting
 			var end = find_ending_bracket(text, "{", "}")
 			var substr = (text.substr(start +1, end - start - 1))
-			#The issue is that this isn't valid json until all the tags are parsed.
-			#We stripped the {} in the substring, and now we parse this, then re add the {}
+			#The issue is this isn't valid json until all the tags are parsed.
+			#We stripped the {} in the substring, and now we parse
 			var new_substr:String #We have to replace them out here because this
 			#is where we remember the tags inside the dictionary
 			if "{" in substr:
-				#print("\nrecursing with text: '", substr, "'\n")
+				print("\nrecursing with text: '", substr, "'\n")
 				new_substr = "{" + parse_text(substr, true) + "}"
-				substr = "{" + substr + "}" #Give it back it's {} so we can replace text with it later
+				substr = "{" + substr + "}" 
+				#Give it back it's {} so we can replace text with it later
 			else:
 				substr = "{" + substr + "}"
 				new_substr = substr
-				#print("\nLast recursion, parsing: ", substr, "\n")
-			#And now we can parse the dictionary because we've ensured that it's valid
+				print("\nLast recursion, parsing: ", substr, "\n")
+			#And now we can parse the dictionary after ensuring that it's valid
 			var parsed_dict = safe_parse_json(new_substr, TYPE_DICTIONARY)
 			var final = "" #We'll be concatenating to this throughout
 			
@@ -170,15 +173,19 @@ func parse_text(text, _child = false):
 					for entry in parsed_dict["entries"]:
 						final += entry
 						final += "\n"
-					final = final.rstrip("\n")
-					final += "\n\""
+					final += "\""
 				"abilityAttackMod":
-					final = "\"\"" #These all have to be valid JSON strings
+					final = "\"\"" 
 				"abilityDc":
 					final = "\"\""
+				"list":
+					final = "\"\n"
+					for item in parsed_dict["items"]:
+						final += " - " + item
+						final += ("\n")
 				_:
-					final = "\"\""
-			#print("\n\nReplacing\n\n", substr, "\n\nwith\n\n", final, "\n")
+					final = "\"\"" #These all have to be valid JSON strings
+			print("\n\nReplacing\n\n", substr, "\n\nwith\n\n", final, "\n")
 			text = text.replace(substr, final)
 	if _child == false:
 		text = text.replace("\"", "")
@@ -189,12 +196,13 @@ func parse_text(text, _child = false):
 func parse_tag(tag): #Tag should be everything after and including the @ sign
 	var word = tag.substr(1, tag.find(" ") - 1) #The tag name
 	var remainder = tag.substr(tag.find(" ") + 1) #Everything after the name
-	#print("\nWord: ", word, " Remainder: ", remainder, "\n")
+	print("\nWord: ", word, " Remainder: ", remainder, "\n")
+	#Time to slice and dice!
 	match word:
 		"dice":
 			return remainder
 		"filter":
-			return ""
+			return remainder
 		"book":
 			return remainder
 		"spell":
@@ -202,11 +210,11 @@ func parse_tag(tag): #Tag should be everything after and including the @ sign
 		"item":
 			return remainder
 		"i":
-			return ""
+			return remainder
 		"5etools":
-			return ""
+			return remainder
 		_:
-			return ""
+			return remainder
 
 #Returns the position of the close character starting from the open one in text
 func find_ending_bracket(text, open, close):
@@ -245,17 +253,15 @@ func remove_rogue_double_quotes(text):
 		if text[start + 1] == "\"":
 			#Narrow the search down to individual lists
 			var substr = text.substr(start, end - start + 1)
-			var final = substr #Can't be editing substr since we have to replace later
+			var final = substr #Can't edit substr since we have to replace later
 			var quote_start = 1 #don't check the first quote
 			while final.find("\"", quote_start) != -1:
-				#We are going to check if the character after the quote isn't a ,
-				#If it isn't, that means that it needs to be escaped.
-				var quote_end = final.find("\"", quote_start + 1) #Where is the next quote
-				if final[quote_end + 1] not in [",", ":", "]"]: #Plausible correct characters
+				var quote_end = final.find("\"", quote_start + 1)
+				if final[quote_end + 1] not in [",", ":", "]"]:
 					final = final.insert(quote_end, "\\") #Escape the evil "
 					quote_end += 1 #Adjust index to account for different size
 					final = final.insert(final.find("\"", quote_end + 1), "\\")
-					quote_end += 2 #Start the next search beyond the last escaped "
+					quote_end += 2 #Start next search after the last escaped "
 				#Adjust start index for next iteration
 				quote_start = final.find("\"", quote_end + 1)
 				if quote_start > len(final):
@@ -276,7 +282,7 @@ func safe_parse_json(text, expected_type):
 		if json.get_error_message() == "Expected ','":
 			#All heck bouta break loose.
 			#Whoever made the JSON let some of the entries contain double quotes
-			#This confuses the parser, because now it is misinterpreting the array
+			#This confuses the parser, because now it  misinterprets the array
 			#containing all the entries as having another key value pair in
 			#its parent dictionary. So sometimes it throws an error claiming
 			#a missing comma. So now I gotta double parse it to fix the ""
@@ -291,6 +297,7 @@ func safe_parse_json(text, expected_type):
 		if typeof(json.data) == expected_type:
 			print("Parsed JSON successfully")
 		else:
-			push_error("The parser did not create the expected type (", expected_type, ")")
+			push_error("The parser did not create the expected type (",
+			 expected_type, ")") #Yes, this happens
 		parsed_data = json.data
 	return parsed_data
