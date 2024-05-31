@@ -27,8 +27,9 @@ func init(data):
 	name_label.text = data["name"]
 	race_label.text = data["race"]
 	subrace_label.text = data["subrace"]
-	class_label.text = data["classes"].keys()[0]
-	subclass_label.text = data["subclasses"][data["subclasses"].keys()[0]]
+	class_label.text = data["classes"][0][0]
+	print(data["subclasses"])
+	subclass_label.text = data["subclasses"][0][1]
 	
 	stre.text = str(data["ability_scores"]["str"])
 	dex.text = str(data["ability_scores"]["dex"])

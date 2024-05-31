@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dxo660f05aaf7"]
+[gd_scene load_steps=27 format=3 uid="uid://dxo660f05aaf7"]
 
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/StrEdit.gd" id="1_4w1gr"]
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/DexEdit.gd" id="2_rwbvj"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterBasics/NextToFeaturesButton.gd" id="19_u4sr2"]
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterFeatures/BackToBasicsButton.gd" id="20_xanq2"]
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterFeatures/NextToBackpackButton.gd" id="21_yjo7j"]
+[ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/CharacterFeatures/FeatureList.gd" id="22_hu3ve"]
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/Backpack/BackToFeaturesButton.gd" id="22_mycha"]
 [ext_resource type="Script" path="res://Scripts/UI/CreateCharacterScreen/Backpack/SaveCharacterButton.gd" id="23_ju7px"]
 
@@ -36,6 +37,7 @@ grow_vertical = 2
 
 [node name="CharacterBasicsScreen" type="PanelContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -377,7 +379,6 @@ script = ExtResource("19_u4sr2")
 
 [node name="CharacterFeaturesScreen" type="PanelContainer" parent="."]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -388,59 +389,59 @@ grow_vertical = 2
 [node name="MarginContainer" type="MarginContainer" parent="CharacterFeaturesScreen"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CharacterFeaturesScreen/MarginContainer"]
+[node name="MainVBox" type="VBoxContainer" parent="CharacterFeaturesScreen/MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CharacterFeaturesScreen/MarginContainer/VBoxContainer"]
+[node name="FeatureHBox" type="HBoxContainer" parent="CharacterFeaturesScreen/MarginContainer/MainVBox"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CharacterFeaturesScreen/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="FeatureListVBox" type="VBoxContainer" parent="CharacterFeaturesScreen/MarginContainer/MainVBox/FeatureHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="CharacterFeaturesScreen/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="FeatureLabel" type="Label" parent="CharacterFeaturesScreen/MarginContainer/MainVBox/FeatureHBox/FeatureListVBox"]
 layout_mode = 2
 text = "Features to Assign"
 horizontal_alignment = 1
 
-[node name="ItemList" type="ItemList" parent="CharacterFeaturesScreen/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="FeatureList" type="ItemList" parent="CharacterFeaturesScreen/MarginContainer/MainVBox/FeatureHBox/FeatureListVBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-item_count = 2
-item_0/text = "Skills"
-item_1/text = "Languages"
+script = ExtResource("22_hu3ve")
 
-[node name="PanelContainer" type="PanelContainer" parent="CharacterFeaturesScreen/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="FeaturePanelContainer" type="PanelContainer" parent="CharacterFeaturesScreen/MarginContainer/MainVBox/FeatureHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CharacterFeaturesScreen/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterFeaturesScreen/MarginContainer/MainVBox/FeatureHBox/FeaturePanelContainer"]
 layout_mode = 2
 
-[node name="FeatureTitleLabel" type="Label" parent="CharacterFeaturesScreen/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer"]
+[node name="FeatureTitleLabel" type="Label" parent="CharacterFeaturesScreen/MarginContainer/MainVBox/FeatureHBox/FeaturePanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Feature Name"
 horizontal_alignment = 1
 
-[node name="FeatureDescription" type="RichTextLabel" parent="CharacterFeaturesScreen/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer"]
+[node name="FeatureDescription" type="RichTextLabel" parent="CharacterFeaturesScreen/MarginContainer/MainVBox/FeatureHBox/FeaturePanelContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+bbcode_enabled = true
 text = "hello this is rich text why am I not displaying hold on one second"
 
-[node name="ButtonHBox" type="HBoxContainer" parent="CharacterFeaturesScreen/MarginContainer/VBoxContainer"]
+[node name="ButtonHBox" type="HBoxContainer" parent="CharacterFeaturesScreen/MarginContainer/MainVBox"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.25
 
-[node name="BackToBasicsButton" type="Button" parent="CharacterFeaturesScreen/MarginContainer/VBoxContainer/ButtonHBox"]
+[node name="BackToBasicsButton" type="Button" parent="CharacterFeaturesScreen/MarginContainer/MainVBox/ButtonHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Back to Character Basics"
 script = ExtResource("20_xanq2")
 
-[node name="NextToBackpackButton" type="Button" parent="CharacterFeaturesScreen/MarginContainer/VBoxContainer/ButtonHBox"]
+[node name="NextToBackpackButton" type="Button" parent="CharacterFeaturesScreen/MarginContainer/MainVBox/ButtonHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Next to Backpack Setup"
@@ -492,6 +493,7 @@ script = ExtResource("23_ju7px")
 [connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/ClassOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/ClassOptions" method="_on_item_selected"]
 [connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/ClassOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/SubclassOptions" method="_on_class_options_item_selected"]
 [connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/ClassOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/HPHBox/HitDice" method="_on_class_options_item_selected"]
+[connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/ClassOptions" to="CharacterFeaturesScreen/MarginContainer/MainVBox/FeatureHBox/FeatureListVBox/FeatureList" method="_on_class_options_item_selected"]
 [connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/SubclassOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/SubclassOptions" method="_on_item_selected"]
 [connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/RaceOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/RaceOptions" method="_on_item_selected"]
 [connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/RaceOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BasicInfoHBox/BasicInfoGrid/SubraceOptions" method="_on_race_options_item_selected"]
@@ -504,7 +506,8 @@ script = ExtResource("23_ju7px")
 [connection signal="item_selected" from="CharacterBasicsScreen/MarginContainer/MainVBox/BackgroundVBox/AlignmentOptions" to="CharacterBasicsScreen/MarginContainer/MainVBox/BackgroundVBox/AlignmentOptions" method="_on_item_selected"]
 [connection signal="pressed" from="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox/BackToMainMenuButton" to="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox/BackToMainMenuButton" method="_on_pressed"]
 [connection signal="pressed" from="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox/NextToFeaturesButton" to="CharacterBasicsScreen/MarginContainer/MainVBox/ButtonHBox/NextToFeaturesButton" method="_on_pressed"]
-[connection signal="pressed" from="CharacterFeaturesScreen/MarginContainer/VBoxContainer/ButtonHBox/BackToBasicsButton" to="CharacterFeaturesScreen/MarginContainer/VBoxContainer/ButtonHBox/BackToBasicsButton" method="_on_pressed"]
-[connection signal="pressed" from="CharacterFeaturesScreen/MarginContainer/VBoxContainer/ButtonHBox/NextToBackpackButton" to="CharacterFeaturesScreen/MarginContainer/VBoxContainer/ButtonHBox/NextToBackpackButton" method="_on_pressed"]
+[connection signal="item_selected" from="CharacterFeaturesScreen/MarginContainer/MainVBox/FeatureHBox/FeatureListVBox/FeatureList" to="CharacterFeaturesScreen/MarginContainer/MainVBox/FeatureHBox/FeatureListVBox/FeatureList" method="_on_item_selected"]
+[connection signal="pressed" from="CharacterFeaturesScreen/MarginContainer/MainVBox/ButtonHBox/BackToBasicsButton" to="CharacterFeaturesScreen/MarginContainer/MainVBox/ButtonHBox/BackToBasicsButton" method="_on_pressed"]
+[connection signal="pressed" from="CharacterFeaturesScreen/MarginContainer/MainVBox/ButtonHBox/NextToBackpackButton" to="CharacterFeaturesScreen/MarginContainer/MainVBox/ButtonHBox/NextToBackpackButton" method="_on_pressed"]
 [connection signal="pressed" from="BackpackCreationScreen/MarginContainer/VBoxContainer/HBoxContainer/BackToFeaturesButton" to="BackpackCreationScreen/MarginContainer/VBoxContainer/HBoxContainer/BackToFeaturesButton" method="_on_pressed"]
 [connection signal="pressed" from="BackpackCreationScreen/MarginContainer/VBoxContainer/HBoxContainer/SaveCharacterButton" to="BackpackCreationScreen/MarginContainer/VBoxContainer/HBoxContainer/SaveCharacterButton" method="_on_pressed"]

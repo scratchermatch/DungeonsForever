@@ -5,3 +5,4 @@ func _ready():
 
 func _on_value_changed(value):
 	PlayerLoader.data["level"] = value
+	PlayerLoader.data["classes"][0][1] = value
